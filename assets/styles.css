@@ -1179,35 +1179,11 @@ blockquote {
   color: var(--primary-foreground);
 }
 
-/* Formatted chat message styles */
-.message-text ol {
-  margin: 0.5rem 0;
-  padding-left: 0;
-  counter-reset: item;
-  list-style: none;
-}
-
-.message-text ol li {
-  display: block;
-  margin: 0.75rem 0;
-  padding-left: 1.5rem;
-  position: relative;
-  line-height: 1.4;
-}
-
-.message-text ol li::before {
-  content: counter(item) ".";
-  counter-increment: item;
-  font-weight: bold;
-  color: var(--primary);
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.message-text ol li strong {
-  color: var(--foreground);
-  font-weight: 600;
+/* Formatted chat message styles - simplified to preserve original structure */
+.message-text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
 }
 
 .message-text a {
