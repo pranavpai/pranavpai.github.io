@@ -1401,6 +1401,26 @@ blockquote {
   }
 }
 
+/* Desktop carousel - bigger photos */
+@media (min-width: 769px) {
+  .carousel-wrapper {
+    width: 600px;
+    height: 480px;
+  }
+  
+  .slide {
+    width: 300px;
+  }
+  
+  .nav.left {
+    left: 12%;
+  }
+  
+  .nav.right {
+    right: 10%;
+  }
+}
+
 /* slider/carousel */
 
 .carousel_container {

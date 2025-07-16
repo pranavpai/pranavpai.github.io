@@ -2,12 +2,9 @@ const autoSlide = false; // use true/false
 const slideInterval = 2200;
 
 const imageUrls = [
-  "https://images.unsplash.com/photo-1749200622589-86f652f26761?w=600&auto=format&fit=crop&q=60",
-  "https://images.unsplash.com/photo-1533612608997-212b06408bb9?w=600&auto=format&fit=crop&q=60",
-  "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&auto=format&fit=crop&q=60",
-  "https://images.unsplash.com/photo-1751601727553-8bd4ad69f6b4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1752001198783-a50a87122934?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1752199718118-133cba05df0e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D",
+  "./assets/img/Photos/china.jpeg",
+  "./assets/img/Photos/hike.jpeg",
+  "./assets/img/Photos/office.jpeg"
 ];
 
 const carousel = document.getElementById("carousel");
