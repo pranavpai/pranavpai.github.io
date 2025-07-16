@@ -1228,6 +1228,9 @@
           // Convert double asterisks to bold
           formatted = formatted.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
           
+          // Convert single asterisks to italic
+          formatted = formatted.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+          
           // Make project names in brackets consistently bold
           formatted = formatted.replace(/\[([^\]]+)\]/g, '<strong>[$1]</strong>');
           
