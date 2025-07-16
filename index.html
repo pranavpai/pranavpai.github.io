@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pranav Pai - AI Engineer & Full Stack Developer</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+      integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="spinner"></div>
+    </div>
+    <div id="portfolio-content">
+      <div class="container">
+        <!-- Theme Toggle -->
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-label="Toggle theme"
+        >
+          <span class="sun-icon">☀️</span>
+          <span class="moon-icon">🌙</span>
+        </button>
+        <div class="portfolio-container">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4 col-12 left">
+                <!-- Left Sidebar -->
+                <aside class="sidebar">
+                  <div class="sidebar-content">
+                    <!-- About Me Section -->
+                    <div class="about-section">
+                      <div class="profile-section">
+                        <div class="carousel_container">
+                          <div class="carousel-wrapper">
+                            <button class="nav left">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                fill="currentColor"
+                                class="bi bi-arrow-left"
+                                viewBox="0 0 16 16"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+                                />
+                              </svg>
+                            </button>
+                            <div class="carousel" id="carousel"></div>
+                            <button class="nav right">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                fill="currentColor"
+                                class="bi bi-arrow-right"
+                                viewBox="0 0 16 16"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Social Links -->
+                      <div class="social-section">
+                        <div class="social-links">
+                          <a
+                            href="mailto:your@email.com"
+                            class="social-link"
+                            title="Email"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="white"
+                              class="bi bi-envelope"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+                              />
+                            </svg>
+                          </a>
+                          <a
+                            href="https://linkedin.com/in/yourprofile"
+                            class="social-link"
+                            title="LinkedIn"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="white"
+                              class="bi bi-linkedin"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                              />
+                            </svg>
+                          </a>
+                          <a href="" title="Github" class="social-link"
+                            ><svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="white"
+                              class="bi bi-github"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                              />
+                            </svg>
+                          </a>
+                          <a href="" class="social-link">
+                            <img
+                              src="./assets/img/hugging-face-svgrepo-com.svg"
+                              alt=""
+                            />
+                          </a>
+                          <a
+                            href="https://twitter.com/yourhandle"
+                            class="social-link"
+                            title="Twitter"
+                            ><svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="white"
+                              class="bi bi-twitter-x"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+                              />
+                            </svg>
+                          </a>
+                          <a href="" class="social-link" title="Spotify">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="white"
+                              class="bi bi-spotify"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"
+                              />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+
+                      <!-- Contact Button -->
+
+                      <a href="mailto:your@gmail.com">
+                        <button class="contact-button">Contact Me</button>
+                      </a>
+                    </div>
+
+                    <!-- Chatbot Section -->
+                    <div class="chatbot-section">
+                      <button id="chat-toggle" class="chat-button">
+                        Chat About Me
+                      </button>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+              <div class="col-xl-8 col-12 right">
+                <!-- Main Content -->
+                <main class="main-content">
+                  <!-- about -->
+                  <section class="content-section" id="about">
+                    <h3>Hi, my name is</h3>
+                    <h1>Pranav Pai</h1>
+                    <h2>I engineer and research AI</h2>
+                    <p>
+                      I’m pursuing my Master’s in Data Science at the University
+                      of Melbourne 🎓. My journey has taken me across UAE
+                      �🇪,Scotland �🏴󠁧󠁢󠁳󠁣󠁴󠁿, England 🇬🇧, Germany 🇩🇪 and now Australia
+                      🇦🇺 — where I gained over 4+ years of hands-on experience
+                      in machine learning, data science, and cutting-edge AI
+                      techniques applied in both research labs and industries
+                      worldwide.
+                    </p>
+
+                    <p>
+                      💻 A highly driven AI engineer, excited to tackle new
+                      challenges, build intelligent systems, and stay at the
+                      forefront of technological advancements. Passionate about
+                      shaping the future of technology through research,
+                      innovation, leadership, and real-world impact.
+                    </p>
+                    <p>
+                      🔗 Open to connecting with innovators, builders, and
+                      industry professionals. Let’s collaborate, share ideas,
+                      and shape the future together! 🚀
+                    </p>
+                  </section>
+                  <!-- /about -->
+                  <section class="content-section">
+                    <div class="title">
+                      <p>01.</p>
+                      <h1>Skills & Character</h1>
+                      <div class="thin_line"></div>
+                    </div>
+                    <div class="skills-grid">
+                      <div class="tabs">
+                        <div class="tab-buttons">
+                          <button class="tab-button active" data-tab="t1">
+                            Languages
+                          </button>
+                          <button class="tab-button" data-tab="t2">
+                            Frameworks
+                          </button>
+                          <button class="tab-button" data-tab="t3">
+                            Libraries
+                          </button>
+                          <button class="tab-button" data-tab="t4">
+                            Tools
+                          </button>
+                        </div>
+                        <div class="tab-content">
+                          <div id="t1" class="tab-panel active">
+                            <div class="tech-tags">
+                              <span class="tech-tag">React</span>
+                              <span class="tech-tag">TypeScript</span>
+                              <span class="tech-tag">Node.js</span>
+                              <span class="tech-tag">Python</span>
+                              <span class="tech-tag">AWS</span>
+                              <span class="tech-tag">Docker</span>
+                              <span class="tech-tag">GraphQL</span>
+                              <span class="tech-tag">PostgreSQL</span>
+                              <span class="tech-tag">MongoDB</span>
+                              <span class="tech-tag">TensorFlow</span>
+                              <span class="tech-tag">PyTorch</span>
+                              <span class="tech-tag">Kubernetes</span>
+                            </div>
+                          </div>
+                          <div id="t2" class="tab-panel">
+                            <div class="tech-tags">
+                              <span class="tech-tag">TypeScript</span>
+                              <span class="tech-tag">Node.js</span>
+                              <span class="tech-tag">Python</span>
+                              <span class="tech-tag">AWS</span>
+                              <span class="tech-tag">Docker</span>
+                              <span class="tech-tag">GraphQL</span>
+                              <span class="tech-tag">PostgreSQL</span>
+                              <span class="tech-tag">MongoDB</span>
+                              <span class="tech-tag">TensorFlow</span>
+                              <span class="tech-tag">PyTorch</span>
+                              <span class="tech-tag">Kubernetes</span>
+                            </div>
+                          </div>
+                          <div id="t3" class="tab-panel">
+                            <div class="tech-tags">
+                              <span class="tech-tag">Python</span>
+                              <span class="tech-tag">AWS</span>
+                              <span class="tech-tag">DS</span>
+                              <span class="tech-tag">Docker</span>
+                              <span class="tech-tag">TensorFlow</span>
+                              <span class="tech-tag">PyTorch</span>
+                              <span class="tech-tag">Kubernetes</span>
+                            </div>
+                          </div>
+                          <div id="t4" class="tab-panel">
+                            <div class="tech-tags">
+                              <span class="tech-tag">Docker</span>
+                              <span class="tech-tag">TensorFlow</span>
+                              <span class="tech-tag">PyTorch</span>
+                              <span class="tech-tag">Kubernetes</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="character">
+                        <h3>Character</h3>
+                        <div class="character-traits">
+                          <div class="trait skill-item">
+                            Problem solver with analytical mindset
+                          </div>
+                          <div class="trait skill-item">
+                            Collaborative team player
+                          </div>
+                          <div class="trait skill-item">
+                            Continuous learner and innovator
+                          </div>
+                          <div class="trait skill-item">
+                            Detail-oriented with big picture thinking
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Education Section -->
+                  <section class="content-section">
+                    <div class="title">
+                      <p>02.</p>
+                      <h1>Education History</h1>
+                      <div class="thin_line"></div>
+                    </div>
+
+                    <div class="education-list">
+                      <div class="education-card">
+                        <div class="education-header">
+                          <div class="education-info">
+                            <h3>Master of Science in Computer Science</h3>
+                            <p class="school">Stanford University</p>
+                            <p class="period">2018 - 2020</p>
+                          </div>
+                          <div class="gpa">GPA: 3.9/4.0</div>
+                        </div>
+                        <div class="subjects">
+                          <h4>Key Subjects:</h4>
+                          <div class="tech-tags">
+                            <span class="tech-tag small">Machine Learning</span>
+                            <span class="tech-tag small">Deep Learning</span>
+                            <span class="tech-tag small">Computer Vision</span>
+                            <span class="tech-tag small"
+                              >Natural Language Processing</span
+                            >
+                            <span class="tech-tag small"
+                              >Algorithms & Data Structures</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="education-card">
+                        <div class="education-header">
+                          <div class="education-info">
+                            <h3>Bachelor of Science in Software Engineering</h3>
+                            <p class="school">MIT</p>
+                            <p class="period">2014 - 2018</p>
+                          </div>
+                          <div class="gpa">GPA: 3.8/4.0</div>
+                        </div>
+                        <div class="subjects">
+                          <h4>Key Subjects:</h4>
+                          <div class="tech-tags">
+                            <span class="tech-tag small"
+                              >Software Engineering</span
+                            >
+                            <span class="tech-tag small">Database Systems</span>
+                            <span class="tech-tag small">Web Development</span>
+                            <span class="tech-tag small"
+                              >Mobile Development</span
+                            >
+                            <span class="tech-tag small">System Design</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Professional Section -->
+                  <section class="content-section">
+                    <div class="title">
+                      <p>03.</p>
+                      <h1>Professional History</h1>
+                      <div class="thin_line"></div>
+                    </div>
+                    <div class="tabs">
+                      <div class="tab-buttons">
+                        <button
+                          class="tab-button active"
+                          data-tab="engineering"
+                        >
+                          Engineering
+                        </button>
+                        <button class="tab-button" data-tab="leadership">
+                          Leadership
+                        </button>
+                      </div>
+                      <div class="tab-content">
+                        <div id="engineering" class="tab-panel active">
+                          <div class="experience-card">
+                            <div class="experience-content">
+                              <div class="experience-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&h=300"
+                                  alt="AI Engineering"
+                                />
+                                <div class="tech-tags">
+                                  <span class="tech-tag">TypeScript</span>
+                                  <span class="tech-tag">Node.js</span>
+                                  <span class="tech-tag">Python</span>
+                                  <span class="tech-tag">AWS</span>
+                                  <span class="tech-tag">Docker</span>
+                                </div>
+                              </div>
+                              <div class="experience-details">
+                                <div class="details_top">
+                                  <p>Senior AI Engineer</p>
+                                  <div class="dot"></div>
+                                  <p class="company">TechCorp AI</p>
+                                </div>
+                                <p class="period">2022 - Present</p>
+                                <p class="description">
+                                  Leading development of large-scale ML systems
+                                  and AI-powered applications. Built
+                                  recommendation engines serving 10M+ users.
+                                </p>
+                                <div class="achievements">
+                                  <h4>Key Achievements:</h4>
+                                  <ul>
+                                    <li>Improved model accuracy by 25%</li>
+                                    <li>Reduced inference time by 40%</li>
+                                    <li>Led team of 5 engineers</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="leadership" class="tab-panel">
+                          <div class="experience-card">
+                            <div class="experience-content">
+                              <div class="experience-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&h=300"
+                                  alt="AI Engineering"
+                                />
+                                <div class="tech-tags">
+                                  <span class="tech-tag">TypeScript</span>
+                                  <span class="tech-tag">Node.js</span>
+                                  <span class="tech-tag">Python</span>
+                                  <span class="tech-tag">AWS</span>
+                                </div>
+                              </div>
+                              <div class="experience-details">
+                                <div class="details_top">
+                                  <p>AI Engineer</p>
+                                  <div class="dot"></div>
+                                  <p class="company">TechCorp AI</p>
+                                </div>
+                                <p class="period">2022 - Present</p>
+                                <p class="description">
+                                  Leading development of large-scale ML systems
+                                  and AI-powered applications. Built
+                                  recommendation engines serving 10M+ users.
+                                </p>
+                                <div class="achievements">
+                                  <h4>Key Achievements:</h4>
+                                  <ul>
+                                    <li>Improved model accuracy by 25%</li>
+                                    <li>Reduced inference time by 40%</li>
+                                    <li>Led team of 5 engineers</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Projects Section -->
+                  <section class="content-section" id="research-project">
+                    <div class="title">
+                      <p>04.</p>
+                      <h1>Research & Projects</h1>
+
+                      <div class="thin_line"></div>
+                    </div>
+                    <div class="tabs">
+                      <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="research">
+                          Research
+                        </button>
+                        <button class="tab-button" data-tab="projects">
+                          Projects
+                        </button>
+                      </div>
+
+                      <div class="tab-content">
+                        <div id="research" class="tab-panel active">
+                          <div class="projects-grid" id="research-list">
+                            <a href="" class="project-card">
+                              <div class="project-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&h=400"
+                                  alt="AI Recommendation System"
+                                />
+                              </div>
+                              <div class="project-content">
+                                <div class="project-header">
+                                  <div class="p_title">
+                                    <h3>AI-Powered Recommendation System</h3>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="12"
+                                      fill="currentColor"
+                                      class="bi bi-box-arrow-up-right"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                                      />
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <span class="project-category">AI/ML</span>
+                                </div>
+                                <p class="project-description">
+                                  Built a machine learning system that provides
+                                  personalized recommendations using
+                                  collaborative filtering and deep learning
+                                  techniques.
+                                </p>
+                                <div class="tech-tags">
+                                  <span class="tech-tag small">Python</span>
+                                  <span class="tech-tag small">TensorFlow</span>
+                                  <span class="tech-tag small">AWS</span>
+                                  <span class="tech-tag small">Docker</span>
+                                </div>
+                              </div>
+                              <!-- </div> -->
+                            </a>
+                            <a href="" class="project-card">
+                              <div class="project-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&h=400"
+                                  alt="AI Recommendation System"
+                                />
+                              </div>
+                              <div class="project-content">
+                                <div class="project-header">
+                                  <div class="p_title">
+                                    <h3>AI-Powered Recommendation System</h3>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="12"
+                                      fill="currentColor"
+                                      class="bi bi-box-arrow-up-right"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                                      />
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <span class="project-category">AI/ML</span>
+                                </div>
+                                <p class="project-description">
+                                  Built a machine learning system that provides
+                                  personalized recommendations using
+                                  collaborative filtering and deep learning
+                                  techniques.
+                                </p>
+                                <div class="tech-tags">
+                                  <span class="tech-tag small">Python</span>
+                                  <span class="tech-tag small">TensorFlow</span>
+                                  <span class="tech-tag small">AWS</span>
+                                  <span class="tech-tag small">Docker</span>
+                                </div>
+                              </div>
+                              <!-- </div> -->
+                            </a>
+                            <a href="" class="project-card">
+                              <div class="project-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&h=400"
+                                  alt="AI Recommendation System"
+                                />
+                              </div>
+                              <div class="project-content">
+                                <div class="project-header">
+                                  <div class="p_title">
+                                    <h3>AI-Powered Recommendation System</h3>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="12"
+                                      fill="currentColor"
+                                      class="bi bi-box-arrow-up-right"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                                      />
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <span class="project-category">AI/ML</span>
+                                </div>
+                                <p class="project-description">
+                                  Built a machine learning system that provides
+                                  personalized recommendations using
+                                  collaborative filtering and deep learning
+                                  techniques.
+                                </p>
+                                <div class="tech-tags">
+                                  <span class="tech-tag small">Python</span>
+                                  <span class="tech-tag small">TensorFlow</span>
+                                  <span class="tech-tag small">AWS</span>
+                                  <span class="tech-tag small">Docker</span>
+                                </div>
+                              </div>
+                              <!-- </div> -->
+                            </a>
+                            <a href="" class="project-card">
+                              <div class="project-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&h=400"
+                                  alt="AI Recommendation System"
+                                />
+                              </div>
+                              <div class="project-content">
+                                <div class="project-header">
+                                  <div class="p_title">
+                                    <h3>AI-Powered Recommendation System</h3>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="12"
+                                      fill="currentColor"
+                                      class="bi bi-box-arrow-up-right"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                                      />
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <span class="project-category">AI/ML</span>
+                                </div>
+                                <p class="project-description">
+                                  Built a machine learning system that provides
+                                  personalized recommendations using
+                                  collaborative filtering and deep learning
+                                  techniques.
+                                </p>
+                                <div class="tech-tags">
+                                  <span class="tech-tag small">Python</span>
+                                  <span class="tech-tag small">TensorFlow</span>
+                                  <span class="tech-tag small">AWS</span>
+                                  <span class="tech-tag small">Docker</span>
+                                </div>
+                              </div>
+                              <!-- </div> -->
+                            </a>
+                            <a href="" class="project-card">
+                              <div class="project-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&h=400"
+                                  alt="AI Recommendation System"
+                                />
+                              </div>
+                              <div class="project-content">
+                                <div class="project-header">
+                                  <div class="p_title">
+                                    <h3>AI-Powered Recommendation System</h3>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="12"
+                                      fill="currentColor"
+                                      class="bi bi-box-arrow-up-right"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                                      />
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <span class="project-category">AI/ML</span>
+                                </div>
+                                <p class="project-description">
+                                  Built a machine learning system that provides
+                                  personalized recommendations using
+                                  collaborative filtering and deep learning
+                                  techniques.
+                                </p>
+                                <div class="tech-tags">
+                                  <span class="tech-tag small">Python</span>
+                                  <span class="tech-tag small">TensorFlow</span>
+                                  <span class="tech-tag small">AWS</span>
+                                  <span class="tech-tag small">Docker</span>
+                                </div>
+                              </div>
+                              <!-- </div> -->
+                            </a>
+                            <a href="" class="project-card">
+                              <div class="project-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&h=400"
+                                  alt="AI Recommendation System"
+                                />
+                              </div>
+                              <div class="project-content">
+                                <div class="project-header">
+                                  <div class="p_title">
+                                    <h3>AI-Powered Recommendation System</h3>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="12"
+                                      fill="currentColor"
+                                      class="bi bi-box-arrow-up-right"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                                      />
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <span class="project-category">AI/ML</span>
+                                </div>
+                                <p class="project-description">
+                                  Built a machine learning system that provides
+                                  personalized recommendations using
+                                  collaborative filtering and deep learning
+                                  techniques.
+                                </p>
+                                <div class="tech-tags">
+                                  <span class="tech-tag small">Python</span>
+                                  <span class="tech-tag small">TensorFlow</span>
+                                  <span class="tech-tag small">AWS</span>
+                                  <span class="tech-tag small">Docker</span>
+                                </div>
+                              </div>
+                              <!-- </div> -->
+                            </a>
+                            <a href="" class="project-card">
+                              <div class="project-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&h=400"
+                                  alt="AI Recommendation System"
+                                />
+                              </div>
+                              <div class="project-content">
+                                <div class="project-header">
+                                  <div class="p_title">
+                                    <h3>AI-Powered Recommendation System</h3>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="12"
+                                      fill="currentColor"
+                                      class="bi bi-box-arrow-up-right"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                                      />
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <span class="project-category">AI/ML</span>
+                                </div>
+                                <p class="project-description">
+                                  Built a machine learning system that provides
+                                  personalized recommendations using
+                                  collaborative filtering and deep learning
+                                  techniques.
+                                </p>
+                                <div class="tech-tags">
+                                  <span class="tech-tag small">Python</span>
+                                  <span class="tech-tag small">TensorFlow</span>
+                                  <span class="tech-tag small">AWS</span>
+                                  <span class="tech-tag small">Docker</span>
+                                </div>
+                              </div>
+                              <!-- </div> -->
+                            </a>
+                          </div>
+                          <div
+                            class="pagination research-pagi"
+                            id="pagination"
+                          ></div>
+                        </div>
+                        <div id="projects" class="tab-panel">
+                          <div class="projects-grid" id="project-list">
+                            <a href="" class="project-card">
+                              <div class="project-image">
+                                <img
+                                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&h=400"
+                                  alt="AI Recommendation System"
+                                />
+                              </div>
+                              <div class="project-content">
+                                <div class="project-header">
+                                  <div class="p_title">
+                                    <h3>AI-Powered Recommendation System</h3>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="12"
+                                      fill="currentColor"
+                                      class="bi bi-box-arrow-up-right"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                                      />
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <span class="project-category">AI/ML</span>
+                                </div>
+                                <p class="project-description">
+                                  Built a machine learning system that provides
+                                  personalized recommendations using
+                                  collaborative filtering and deep learning
+                                  techniques.
+                                </p>
+                                <div class="tech-tags">
+                                  <span class="tech-tag small">Python</span>
+                                  <span class="tech-tag small">TensorFlow</span>
+                                  <span class="tech-tag small">AWS</span>
+                                  <span class="tech-tag small">Docker</span>
+                                </div>
+                              </div>
+                              <!-- </div> -->
+                            </a>
+                          </div>
+                          <div
+                            class="pagination project-pagi"
+                            id="project-pagination"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Recommendations Section -->
+                  <section class="content-section">
+                    <div class="title">
+                      <p>05.</p>
+                      <h1>Recommendations</h1>
+
+                      <div class="thin_line"></div>
+                    </div>
+                    <div class="recommendations-grid" id="recommendation-list">
+                      <a href="">
+                        <div class="recommendation-card">
+                          <div class="recommendation-header">
+                            <img
+                              src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=150&h=150"
+                              alt="Sarah Johnson"
+                              class="recommender-image"
+                            />
+                            <div class="recommender-info">
+                              <div class="p_title">
+                                <h3>Sarah Johnson</h3>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-linkedin"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                                  />
+                                </svg>
+                              </div>
+
+                              <div class="details_top">
+                                <p>Senior Engineering Manager</p>
+
+                                <div class="dot"></div>
+                                <p>TechCorp AI</p>
+                              </div>
+
+                              <span class="relationship">Direct Manager</span>
+                            </div>
+                          </div>
+                          <blockquote>
+                            "Working with Pranav has been an absolute pleasure.
+                            Their technical expertise in AI and machine learning
+                            is exceptional, and they consistently deliver
+                            high-quality solutions that exceed expectations."
+                          </blockquote>
+                        </div>
+                      </a>
+                    </div>
+                    <div
+                      class="pagination"
+                      id="recommendation-pagination"
+                    ></div>
+                  </section>
+
+                  <!-- Additional Info Section -->
+                  <section class="content-section">
+                    <div class="title">
+                      <p>06.</p>
+                      <h1>Additional Information</h1>
+                      <div class="thin_line"></div>
+                    </div>
+                    <div class="tabs">
+                      <div class="tab-buttons">
+                        <button
+                          class="tab-button active"
+                          data-tab="soft-skills"
+                        >
+                          Soft Skills
+                        </button>
+                        <button class="tab-button" data-tab="activities">
+                          Activities
+                        </button>
+                      </div>
+                      <div class="tab-content">
+                        <div id="soft-skills" class="tab-panel active">
+                          <div class="skill-card">
+                            <h3>Core Soft Skills</h3>
+                            <div class="soft-skills-grid">
+                              <div class="skill-item">
+                                Leadership & Team Management
+                              </div>
+                              <div class="skill-item">
+                                Strategic Thinking & Planning
+                              </div>
+                              <div class="skill-item">
+                                Cross-functional Collaboration
+                              </div>
+                              <div class="skill-item">
+                                Problem Solving & Critical Thinking
+                              </div>
+                              <div class="skill-item">
+                                Communication & Presentation
+                              </div>
+                              <div class="skill-item">
+                                Adaptability & Learning Agility
+                              </div>
+                              <div class="skill-item">
+                                Time Management & Prioritization
+                              </div>
+                              <div class="skill-item">
+                                Emotional Intelligence
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="activities" class="tab-panel">
+                          <div class="activities-grid">
+                            <div class="activity-card">
+                              <div class="activity-icon">🚀</div>
+                              <div class="activity-content">
+                                <h3>Open Source Contributions</h3>
+                                <p>
+                                  Active contributor to various AI/ML open
+                                  source projects including TensorFlow and
+                                  PyTorch ecosystem libraries.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="activity-card">
+                              <div class="activity-icon">✍️</div>
+                              <div class="activity-content">
+                                <h3>Technical Writing</h3>
+                                <p>
+                                  Published articles on Medium and personal blog
+                                  about AI engineering, best practices, and
+                                  industry trends.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="activity-card">
+                              <div class="activity-icon">🎤</div>
+                              <div class="activity-content">
+                                <h3>Conference Speaking</h3>
+                                <p>
+                                  Regular speaker at tech conferences and
+                                  meetups, sharing insights on AI implementation
+                                  and engineering practices.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="activity-card">
+                              <div class="activity-icon">👥</div>
+                              <div class="activity-content">
+                                <h3>Mentorship</h3>
+                                <p>
+                                  Actively mentor junior developers and students
+                                  through coding bootcamps and online platforms.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="activity-card">
+                              <div class="activity-icon">📚</div>
+                              <div class="activity-content">
+                                <h3>Continuous Learning</h3>
+                                <p>
+                                  Pursuing advanced certifications in cloud
+                                  technologies and staying updated with latest
+                                  AI research papers.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="activity-card">
+                              <div class="activity-icon">🌟</div>
+                              <div class="activity-content">
+                                <h3>Community Building</h3>
+                                <p>
+                                  Organize local tech meetups and contribute to
+                                  building inclusive tech communities.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Footer -->
+                  <footer class="footer">
+                    <div class="footer-content">
+                      <div class="footer-section socials">
+                        <h3>AI News of the month</h3>
+                        <div class="footer-links">
+                          <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing
+                            elit. Fuga incidunt vero facere non ad molestiae
+                            quos cumque, a magnam tempore!
+                          </p>
+                        </div>
+                      </div>
+                      <div class="footer-section">
+                        <h3>AI Engineering Tips</h3>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Sunt officiis doloribus, dicta animi autem nam
+                          dolorum et magni
+                          <br />
+                        </p>
+                      </div>
+
+                      <div class="footer-section">
+                        <h3>About This Site</h3>
+                        <div class="site-info">
+                          <p>Built with HTML, CSS, and JavaScript</p>
+
+                          <p>Featuring dark/light mode support</p>
+                          <p class="copyright">
+                            © 2025
+                            <a href="https://www.fiverr.com/iibbar">Developer</a
+                            >. All rights reserved.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </footer>
+                </main>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Chat Modal -->
+    <div id="chat-modal" class="chat-modal">
+      <div class="chat-modal-content">
+        <div class="chat-header">
+          <h3>💬 Ask Me Anything</h3>
+          <button id="chat-close" class="chat-close">×</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="message bot-message">
+            <div class="message-avatar">🤖</div>
+            <div class="message-content">
+              <p>
+                Hello! I'm here to help you learn more about my background,
+                experience, and projects. What would you like to know?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-section">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Ask about my experience, skills, projects..."
+          />
+          <button id="chat-send">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        const preloader = document.getElementById("preloader");
+        const content = document.getElementById("portfolio-content");
+   
+        // Hide preloader
+        preloader.style.display = "none";
+
+        // Show content with animation
+        content.style.opacity = "1";
+      });
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
+      integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./assets/carousel.js"></script>
+    <script src="./assets/main.js"></script>
+
+    <script type="module">
+      import { Client } from "https://esm.sh/@gradio/client";
+
+      class ChatManager {
+        constructor() {
+          this.messages = [];
+          this.client = null; // Gradio client
+          this.init();
+        }
+
+        async init() {
+          this.bindEvents();
+          this.renderMessages();
+
+          try {
+            this.client = await Client.connect(
+              "pranavpai/Personal-Resume-Chatbot-Public"
+            );
+            this.pushBotMessage("Hello! Ask me anything about the resume.");
+          } catch (error) {
+            console.error("Gradio connection error:", error);
+            this.pushBotMessage(
+              "Error connecting to AI. Please try again later."
+            );
+          }
+        }
+
+        bindEvents() {
+          const chatToggle = document.getElementById("chat-toggle");
+          const chatClose = document.getElementById("chat-close");
+          const chatSend = document.getElementById("chat-send");
+          const chatInput = document.getElementById("chat-input");
+          const chatModal = document.getElementById("chat-modal");
+
+          chatToggle?.addEventListener("click", () => this.openChat());
+          chatClose?.addEventListener("click", () => this.closeChat());
+          chatSend?.addEventListener("click", () => this.sendMessage());
+          chatInput?.addEventListener("keypress", (e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              this.sendMessage();
+            }
+          });
+
+          chatModal?.addEventListener("click", (e) => {
+            if (e.target === chatModal) {
+              this.closeChat();
+            }
+          });
+        }
+
+        openChat() {
+          const chatModal = document.getElementById("chat-modal");
+          if (chatModal) {
+            chatModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+        }
+
+        closeChat() {
+          const chatModal = document.getElementById("chat-modal");
+          if (chatModal) {
+            chatModal.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        }
+
+        async sendMessage() {
+          const chatInput = document.getElementById("chat-input");
+          if (!chatInput || !chatInput.value.trim()) return;
+
+          const userMessage = {
+            id: Date.now().toString(),
+            text: chatInput.value.trim(),
+            sender: "user",
+            timestamp: new Date(),
+          };
+
+          this.messages.push(userMessage);
+          chatInput.value = "";
+          this.renderMessages();
+
+          this.pushBotMessage("typing..."); // Optional loading indicator
+
+          if (this.client) {
+            try {
+              const result = await this.client.predict("/chat", {
+                message: userMessage.text,
+              });
+
+              const replyText =
+                result.data || "Sorry, I couldn't understand that.";
+              this.updateLastBotMessage(replyText);
+            } catch (error) {
+              console.error("Prediction error:", error);
+              this.updateLastBotMessage("Oops! Failed to get a response.");
+            }
+          } else {
+            this.updateLastBotMessage("Bot not connected.");
+          }
+        }
+
+        pushBotMessage(text) {
+          const botMessage = {
+            id: Date.now().toString(),
+            text,
+            sender: "bot",
+            timestamp: new Date(),
+          };
+          this.messages.push(botMessage);
+          this.renderMessages();
+        }
+
+        updateLastBotMessage(newText) {
+          const last = this.messages[this.messages.length - 1];
+          if (last && last.sender === "bot" && last.text === "typing...") {
+            last.text = newText;
+          } else {
+            this.pushBotMessage(newText);
+          }
+          this.renderMessages();
+        }
+
+        renderMessages() {
+          const chatMessages = document.getElementById("chat-messages");
+          if (!chatMessages) return;
+
+          chatMessages.innerHTML = "";
+
+          this.messages.forEach((message) => {
+            const messageDiv = document.createElement("div");
+            messageDiv.className = `message ${message.sender}-message`;
+
+            messageDiv.innerHTML = `
+          <div class="message-avatar">
+              ${message.sender === "bot" ? "🤖" : "👤"}
+          </div>
+          <div class="message-content">
+              <p>${message.text}</p>
+          </div>
+        `;
+
+            chatMessages.appendChild(messageDiv);
+          });
+
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      }
+
+      // Initialize when DOM is ready
+      window.addEventListener("DOMContentLoaded", () => {
+        new ChatManager();
+      });
+    </script>
+  </body>
+</html>
