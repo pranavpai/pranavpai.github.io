@@ -8,8 +8,6 @@ const imageUrls = [
 ];
 
 const carousel = document.getElementById("carousel");
-const leftBtn = document.querySelector(".nav.left");
-const rightBtn = document.querySelector(".nav.right");
 
 let current = 0;
 let interval;
@@ -38,8 +36,12 @@ function updateSlides() {
       slide.classList.add("center");
     } else if (i === leftIndex) {
       slide.classList.add("left");
+      slide.style.cursor = "pointer";
+      slide.onclick = goLeft;
     } else if (i === rightIndex) {
       slide.classList.add("right");
+      slide.style.cursor = "pointer";
+      slide.onclick = goRight;
     }
   });
 }
@@ -69,9 +71,49 @@ function resetAutoSlide() {
   }
 }
 
+// Touch/Swipe functionality
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
+function handleTouchStart(e) {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}
+
+function handleTouchMove(e) {
+  e.preventDefault(); // Prevent scrolling
+}
+
+function handleTouchEnd(e) {
+  touchEndX = e.changedTouches[0].clientX;
+  touchEndY = e.changedTouches[0].clientY;
+  handleSwipe();
+}
+
+function handleSwipe() {
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+  const minSwipeDistance = 50;
+  
+  // Only trigger swipe if horizontal movement is greater than vertical
+  if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+    if (deltaX > 0) {
+      goLeft(); // Swipe right -> go to previous image
+    } else {
+      goRight(); // Swipe left -> go to next image
+    }
+  }
+}
+
 // Init
 createSlides();
 updateSlides();
-leftBtn.onclick = goLeft;
-rightBtn.onclick = goRight;
+
+// Add touch event listeners to carousel
+carousel.addEventListener('touchstart', handleTouchStart, { passive: false });
+carousel.addEventListener('touchmove', handleTouchMove, { passive: false });
+carousel.addEventListener('touchend', handleTouchEnd, { passive: false });
+
 startAutoSlide();

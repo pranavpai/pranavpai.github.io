@@ -1456,6 +1456,7 @@ blockquote {
   transform: translateX(-50%) scale(0.85);
   opacity: 0.5;
   z-index: 2;
+  pointer-events: auto;
 }
 
 .slide.right {
@@ -1463,27 +1464,9 @@ blockquote {
   transform: translateX(-50%) scale(0.85);
   opacity: 0.5;
   z-index: 2;
+  pointer-events: auto;
 }
 
-.nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0);
-  border: none;
-  font-size: 30px;
-  padding: 2px 10px 0px 10px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.nav.left {
-  left: 21%;
-}
-
-.nav.right {
-  right: 18%;
-}
 
 /* Desktop carousel - 30% larger than original */
 @media (min-width: 769px) {
@@ -1494,14 +1477,6 @@ blockquote {
   
   .slide {
     width: 195px;
-  }
-  
-  .nav.left {
-    left: 17%;
-  }
-  
-  .nav.right {
-    right: 14%;
   }
 }
 
