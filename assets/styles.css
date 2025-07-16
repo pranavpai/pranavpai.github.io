@@ -1401,26 +1401,6 @@ blockquote {
   }
 }
 
-/* Desktop carousel - bigger photos */
-@media (min-width: 769px) {
-  .carousel-wrapper {
-    width: 600px;
-    height: 480px;
-  }
-  
-  .slide {
-    width: 300px;
-  }
-  
-  .nav.left {
-    left: 12%;
-  }
-  
-  .nav.right {
-    right: 10%;
-  }
-}
-
 /* slider/carousel */
 
 .carousel_container {
@@ -1503,6 +1483,26 @@ blockquote {
 
 .nav.right {
   right: 18%;
+}
+
+/* Desktop carousel - 30% larger than original */
+@media (min-width: 769px) {
+  .carousel-wrapper {
+    width: 390px;
+    height: 325px;
+  }
+  
+  .slide {
+    width: 195px;
+  }
+  
+  .nav.left {
+    left: 17%;
+  }
+  
+  .nav.right {
+    right: 14%;
+  }
 }
 
 .container,
