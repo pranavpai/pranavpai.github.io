@@ -1182,6 +1182,102 @@
     <script type="module">
       import { Client } from "https://esm.sh/@gradio/client";
 
+      // Text formatting function for bot responses
+      function formatBotResponse(input) {
+        try {
+          // Handle different types of input from Gradio
+          let text = '';
+          
+          if (typeof input === 'string') {
+            text = input;
+          } else if (Array.isArray(input)) {
+            text = input.join(' ');
+          } else if (input && typeof input === 'object') {
+            // Try to extract text from object (common Gradio response format)
+            text = input.text || input.content || input.message || String(input);
+          } else {
+            text = String(input || '');
+          }
+          
+          if (!text) return '';
+          
+          // Escape HTML first to prevent XSS
+          let formatted = text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+          
+          // Convert numbered lists to HTML (simplified regex)
+          formatted = formatted.replace(/(\d+\.\s+)([^\n]+)/g, '<li><strong>$2</strong></li>');
+          
+          // Convert URLs to clickable links
+          formatted = formatted.replace(
+            /(https?:\/\/[^\s<>]+)/g, 
+            '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+          );
+          
+          // Convert email addresses to mailto links
+          formatted = formatted.replace(
+            /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g,
+            '<a href="mailto:$1">$1</a>'
+          );
+          
+          // Convert double asterisks to bold
+          formatted = formatted.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+          
+          // Convert line breaks to <br> tags
+          formatted = formatted.replace(/\n/g, '<br>');
+          
+          // Wrap consecutive list items in <ol> (improved)
+          if (formatted.includes('<li>')) {
+            // Split by line breaks and process
+            const lines = formatted.split('<br>');
+            let result = [];
+            let listItems = [];
+            let inList = false;
+            
+            for (let line of lines) {
+              if (line.includes('<li>')) {
+                // Collect list items
+                listItems.push(line);
+                inList = true;
+              } else {
+                // If we were in a list, close it
+                if (inList && listItems.length > 0) {
+                  result.push('<ol>' + listItems.join('') + '</ol>');
+                  listItems = [];
+                  inList = false;
+                }
+                // Add non-list content
+                if (line.trim()) {
+                  result.push(line);
+                }
+              }
+            }
+            
+            // Handle any remaining list items
+            if (listItems.length > 0) {
+              result.push('<ol>' + listItems.join('') + '</ol>');
+            }
+            
+            // Join with line breaks, but not inside lists
+            formatted = result.join('<br>');
+          }
+          
+          // Clean up multiple consecutive <br> tags
+          formatted = formatted.replace(/(<br>\s*){3,}/g, '<br><br>');
+          
+          return formatted;
+          
+        } catch (error) {
+          console.error('Error formatting bot response:', error);
+          // Return original input as string if formatting fails
+          return String(input || '');
+        }
+      }
+
       class ChatManager {
         constructor() {
           this.messages = [];
@@ -1269,6 +1365,8 @@
                 message: userMessage.text,
               });
 
+              console.log("Gradio response:", result); // Debug log
+              
               const replyText =
                 result.data || "Sorry, I couldn't understand that.";
               this.updateLastBotMessage(replyText);
@@ -1312,12 +1410,17 @@
             const messageDiv = document.createElement("div");
             messageDiv.className = `message ${message.sender}-message`;
 
+            // Format bot messages, keep user messages as plain text
+            const messageContent = message.sender === "bot" 
+              ? formatBotResponse(message.text)
+              : message.text;
+
             messageDiv.innerHTML = `
           <div class="message-avatar">
               ${message.sender === "bot" ? "🤖" : "👤"}
           </div>
           <div class="message-content">
-              <p>${message.text}</p>
+              <div class="message-text">${messageContent}</div>
           </div>
         `;
 

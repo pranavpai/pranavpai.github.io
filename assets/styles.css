@@ -1179,6 +1179,64 @@ blockquote {
   color: var(--primary-foreground);
 }
 
+/* Formatted chat message styles */
+.message-text ol {
+  margin: 0.5rem 0;
+  padding-left: 0;
+  counter-reset: item;
+  list-style: none;
+}
+
+.message-text ol li {
+  display: block;
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.4;
+}
+
+.message-text ol li::before {
+  content: counter(item) ".";
+  counter-increment: item;
+  font-weight: bold;
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.message-text ol li strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.message-text a {
+  color: var(--primary) !important;
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+.message-text a:hover {
+  opacity: 0.8;
+}
+
+.user-message .message-text a {
+  color: var(--primary-foreground) !important;
+}
+
+.message-text br {
+  line-height: 1.2;
+}
+
+.message-text strong {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.user-message .message-text strong {
+  color: var(--primary-foreground);
+}
+
 .chat-input-section {
   display: flex;
   gap: 0.5rem;
