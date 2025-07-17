@@ -69,7 +69,7 @@
                       <div class="social-section">
                         <div class="social-links">
                           <a
-                            href="mailto:your@email.com"
+                            href="mailto:paipranav01@gmail.com"
                             class="social-link"
                             title="Email"
                           >
@@ -87,9 +87,11 @@
                             </svg>
                           </a>
                           <a
-                            href="https://linkedin.com/in/yourprofile"
+                            href="https://www.linkedin.com/in/pranav-pai/"
                             class="social-link"
                             title="LinkedIn"
+                            target="_blank"
+                            rel="noopener noreferrer"
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +106,7 @@
                               />
                             </svg>
                           </a>
-                          <a href="" title="Github" class="social-link"
+                          <a href="https://github.com/pranavpai" title="Github" class="social-link" target="_blank" rel="noopener noreferrer"
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -118,16 +120,18 @@
                               />
                             </svg>
                           </a>
-                          <a href="" class="social-link">
+                          <a href="https://huggingface.co/pranavpai" class="social-link" title="Hugging Face" target="_blank" rel="noopener noreferrer">
                             <img
                               src="./assets/img/hugging-face-svgrepo-com.svg"
-                              alt=""
+                              alt="Hugging Face"
                             />
                           </a>
                           <a
-                            href="https://twitter.com/yourhandle"
+                            href="https://x.com/PranavPai01"
                             class="social-link"
-                            title="Twitter"
+                            title="X (Twitter)"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -141,7 +145,7 @@
                               />
                             </svg>
                           </a>
-                          <a href="" class="social-link" title="Spotify">
+                          <a href="https://open.spotify.com/user/317pss47k332ud34gtibzpaal7ju?si=db64a3ed321c4ade" class="social-link" title="Spotify" target="_blank" rel="noopener noreferrer">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -160,7 +164,7 @@
 
                       <!-- Contact Button -->
 
-                      <a href="mailto:your@gmail.com">
+                      <a href="mailto:paipranav01@gmail.com">
                         <button class="contact-button">Contact Me</button>
                       </a>
                     </div>
@@ -168,7 +172,7 @@
                     <!-- Chatbot Section -->
                     <div class="chatbot-section">
                       <button id="chat-toggle" class="chat-button">
-                        Chat About Me
+                        My AI Chatbot
                       </button>
                     </div>
                   </div>
@@ -181,28 +185,20 @@
                   <section class="content-section" id="about">
                     <h3>Hi, my name is</h3>
                     <h1>Pranav Pai</h1>
-                    <h2>I research and engineer all things AI</h2>
+                    <h2>A part-time researcher, full-time AI engineer.</h2>
                     <p>
-                      I’m pursuing my Master’s in Data Science at the University
-                      of Melbourne 🎓. My journey has taken me across UAE
-                      �🇪,Scotland �🏴󠁧󠁢󠁳󠁣󠁴󠁿, England 🇬🇧, Germany 🇩🇪 and now Australia
-                      🇦🇺 — where I gained over 4+ years of hands-on experience
-                      in machine learning, data science, and cutting-edge AI
-                      techniques applied in both research labs and industries
-                      worldwide.
+                      I'm an AI engineer and researcher passionate about shaping the future of artificial intelligence to create meaningful societal impact. 
+                      My academic and professional journey has taken me across the UAE, Scotland, England, Germany, and now Australia, where I am pursuing my Master's in Data Science at the University of Melbourne. 
+                      Along the way, I have built a global perspective and gained hands-on experience applying AI across both research and industry.
                     </p>
 
                     <p>
-                      💻 A highly driven AI engineer, excited to tackle new
-                      challenges, build intelligent systems, and stay at the
-                      forefront of technological advancements. Passionate about
-                      shaping the future of technology through research,
-                      innovation, leadership, and real-world impact.
+                      I am driven by the belief that AI, when built with intention and responsibility, can tackle some of the most pressing challenges of our time. I care deeply about building intelligent systems that are transparent, explainable, and aligned with ethical principles. 
+                      My work focuses on bridging cutting-edge research with practical applications that empower people, improve systems, and promote sustainability.
                     </p>
                     <p>
-                      🔗 Open to connecting with innovators, builders, and
-                      industry professionals. Let’s collaborate, share ideas,
-                      and shape the future together! 🚀
+                      In Australia and beyond, I aspire to lead innovation that puts humanity at the centre of technological progress. 
+                      I am committed to continuous learning, collaboration, and building AI that not only advances capabilities but also creates lasting, positive change in the world.
                     </p>
                   </section>
                   <!-- /about -->
@@ -1237,7 +1233,7 @@
             this.client = await Client.connect(
               "pranavpai/Personal-Resume-Chatbot-Public"
             );
-            this.pushBotMessage("Hello! Ask me anything about the resume.");
+            this.pushBotMessage("Hello! Curious about my career? Just ask.");
           } catch (error) {
             console.error("Gradio connection error:", error);
             this.pushBotMessage(

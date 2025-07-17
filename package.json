@@ -1,0 +1,40 @@
+{
+  "name": "pranav-pai-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website of Pranav Pai - AI Engineer & Full Stack Developer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --host=127.0.0.1 --open=/index.html --no-browser",
+    "start": "live-server --port=3000 --host=127.0.0.1 --open=/index.html",
+    "serve": "serve -s . -p 3000",
+    "preview": "npx serve -s . -p 3000 --no-clipboard",
+    "validate": "echo 'Running HTML validation...' && npx html-validate index.html",
+    "lighthouse": "echo 'Run: npx lighthouse http://localhost:3000 --chrome-flags=\"--headless\"'"
+  },
+  "keywords": [
+    "portfolio",
+    "ai-engineer",
+    "full-stack-developer",
+    "personal-website",
+    "professional-portfolio"
+  ],
+  "author": "Pranav Pai",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.3",
+    "html-validate": "^8.7.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+} 
