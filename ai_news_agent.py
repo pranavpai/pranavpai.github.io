@@ -85,7 +85,6 @@ class AINewsAgent:
             })
         
         # Create prompt for OpenAI
-        current_month = datetime.now().strftime("%B")
         prompt = f"""You are an AI news curator. Select ONE piece of AI news that is most relevant to a general audience and represents a significant breakthrough.
 
         News items:
@@ -95,13 +94,13 @@ class AINewsAgent:
 
         {{
             "selected_index": 0,
-            "summary": "{current_month}: ONE medium sentence with specific details and brief impact",
+            "summary": "ONE medium sentence with specific details and brief impact",
             "reason": "why this was selected"
         }}
 
-        Summary format: "{current_month}: [Specific breakthrough with numbers/names] enabling [brief impact]"
+        Summary format: "[Specific breakthrough with numbers/names] enabling [brief impact]"
         
-        Good example: "July: Researchers achieved 99.2% accuracy in real-time translation across 200 languages using a new transformer, enabling instant communication without internet"
+        Good example: "Researchers achieved 99.2% accuracy in real-time translation across 200 languages using a new transformer, enabling instant communication without internet"
         """
         
         try:
