@@ -1039,6 +1039,12 @@ blockquote {
   color: var(--primary);
 }
 
+.footer-links a.ai-news-link {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--primary);
+}
+
 .tips-list {
   list-style: none;
   color: var(--muted-foreground);
