@@ -40,10 +40,10 @@ jobs:
         run: npm run validate
         continue-on-error: true  # Don't fail build on validation warnings
         
-             - name: Setup Pages
-         uses: actions/configure-pages@v4
-         with:
-           enablement: true
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          enablement: true
         
       - name: Build site
         run: |
