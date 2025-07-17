@@ -149,10 +149,8 @@ class AINewsAgent:
             new_content = f"""<h3>AI News of the month</h3>
                         <div class="footer-links">
                           <p>
-                            {news_item['summary']} 
-                            <a href="{news_item['url']}" target="_blank" rel="noopener noreferrer" 
-                               style="color: var(--color-primary); text-decoration: none; 
-                                      border-bottom: 1px solid var(--color-primary);">
+                            {news_item['summary']}
+                            <a href="{news_item['url']}" target="_blank" rel="noopener noreferrer" class="ai-news-link">
                               Read more →
                             </a>
                           </p>
