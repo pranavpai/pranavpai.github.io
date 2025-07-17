@@ -1,13 +1,13 @@
 # Professional Portfolio Website - Pranav Pai
 
-[![Deploy to GitHub Pages](https://github.com/pranavpai/Professional-Website/actions/workflows/deploy.yml/badge.svg)](https://github.com/pranavpai/Professional-Website/actions/workflows/deploy.yml)
-[![PR Preview Check](https://github.com/pranavpai/Professional-Website/actions/workflows/pr-preview.yml/badge.svg)](https://github.com/pranavpai/Professional-Website/actions/workflows/pr-preview.yml)
+[![Deploy to GitHub Pages](https://github.com/pranavpai/pranavpai.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/pranavpai/pranavpai.github.io/actions/workflows/deploy.yml)
+[![PR Preview Check](https://github.com/pranavpai/pranavpai.github.io/actions/workflows/pr-preview.yml/badge.svg)](https://github.com/pranavpai/pranavpai.github.io/actions/workflows/pr-preview.yml)
 
 A modern, responsive portfolio website for Pranav Pai - AI Engineer & Full Stack Developer, featuring dark/light mode, interactive components, and AI-powered chatbot integration.
 
 ## 🌐 Live Website
 
-**Production:** [https://pranavpai.github.io/Professional-Website](https://pranavpai.github.io/Professional-Website)
+**Production:** [https://pranavpai.github.io](https://pranavpai.github.io)
 
 ## ✨ Features
 
@@ -42,8 +42,8 @@ A modern, responsive portfolio website for Pranav Pai - AI Engineer & Full Stack
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/pranavpai/Professional-Website.git
-   cd Professional-Website
+   git clone https://github.com/pranavpai/pranavpai.github.io.git
+   cd pranavpai.github.io
    ```
 
 2. **Install dependencies**
@@ -69,7 +69,7 @@ A modern, responsive portfolio website for Pranav Pai - AI Engineer & Full Stack
 ## 📁 Project Structure
 
 ```
-Professional-Website/
+pranavpai.github.io/
 ├── assets/
 │   ├── img/           # Images and SVG icons
 │   ├── styles.css     # Main stylesheet with CSS variables
@@ -131,7 +131,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Pranav Pai** - paipranav01@gmail.com
 
-Project Link: [https://github.com/pranavpai/Professional-Website](https://github.com/pranavpai/Professional-Website)
+Project Link: [https://github.com/pranavpai/pranavpai.github.io](https://github.com/pranavpai/pranavpai.github.io)
 
 ---
 
