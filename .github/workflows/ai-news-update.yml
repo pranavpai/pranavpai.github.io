@@ -11,6 +11,11 @@ on:
         required: false
         default: 'true'
 
+# Set permissions for repository write access
+permissions:
+  contents: write
+  actions: read
+
 jobs:
   update-ai-news:
     runs-on: ubuntu-latest
