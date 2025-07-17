@@ -45,4 +45,7 @@ out/
 
 # Lighthouse reports
 lighthouse-report.html
-lighthouse-report.json 
+lighthouse-report.json
+
+# Setup documentation (internal)
+setup_github_secrets.md 
