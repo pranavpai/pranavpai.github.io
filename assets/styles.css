@@ -340,6 +340,7 @@ html {
 
 /* Contact Button */
 .contact-button {
+  display: block;
   width: 100%;
   padding: 0.75rem 1.5rem;
   background-color: var(--accent);
@@ -351,6 +352,8 @@ html {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
+  text-align: center;
+  text-decoration: none !important;
 }
 
 .contact-button:hover {
