@@ -930,6 +930,10 @@ blockquote {
 #soft-skills .skill-card {
   padding: 1rem 0.5rem !important;
 }
+
+#soft-skills .skill-card:hover {
+  transform: none;
+}
 .skill-item {
   color: var(--muted-foreground);
   display: flex;
