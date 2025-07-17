@@ -125,7 +125,11 @@ For manual deployment to other platforms:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is proprietary and all rights are reserved. See the [LICENSE](LICENSE) file for complete terms and restrictions.
+
+**© 2025 Pranav Pai. All Rights Reserved.**
+
+This portfolio website is protected by copyright law. Unauthorized copying, modification, or distribution is strictly prohibited.
 
 ## 📞 Contact
 
@@ -135,4 +139,6 @@ Project Link: [https://github.com/pranavpai/pranavpai.github.io](https://github.
 
 ---
 
-⭐ **Star this repo if you found it helpful!** 
+**© 2025 Pranav Pai. All Rights Reserved.**
+
+This portfolio is protected by copyright law. Viewing for professional evaluation purposes only.

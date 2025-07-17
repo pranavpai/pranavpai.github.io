@@ -19,7 +19,7 @@
     "professional-portfolio"
   ],
   "author": "Pranav Pai",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "devDependencies": {
     "live-server": "^1.2.2",
     "serve": "^14.2.3",
