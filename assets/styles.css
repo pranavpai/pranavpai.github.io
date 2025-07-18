@@ -822,37 +822,44 @@ html {
 .project-button:hover {
   background-color: var(--accent);
 }
-.pagination {
+.pagination,
+.pagination.research-pagi,
+.pagination.project-pagi {
   display: flex;
   justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
-  background-color: var(--pagination-bg);
-  width: 200px;
+  background-color: var(--accent);
+  width: 200px !important;
   margin: 20px auto;
-  padding: 5px;
+  padding: 8px;
   border-radius: 30px;
+  border: 1px solid var(--border);
 }
 
 .pagination button {
   width: 40px;
   height: 40px;
-  background-color: transparent;
-  border: 1px solid #8c999b4d;
+  background-color: var(--accent);
+  border: 1px solid var(--border);
   cursor: pointer;
   border-radius: 50%;
-  transition: background 0.3s;
-  color: var(--foreground) !important;
+  transition: all 0.3s ease;
+  color: var(--muted-foreground) !important;
 }
 
 .pagination button.active {
-  font-weight: bold;
-  color: var(--light-green) !important;
+  background-color: var(--background);
+  color: var(--foreground) !important;
+  font-weight: 600;
+  border: 1px solid var(--border-hover);
 }
 
 .pagination button:hover {
-  background-color: var(--muted);
+  background-color: var(--accent);
   color: var(--foreground) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }
 
 /* Achievements Toggle */
