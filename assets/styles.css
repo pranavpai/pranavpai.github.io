@@ -212,8 +212,6 @@ html {
 
 /* Sidebar */
 .sidebar {
-  position: fixed;
-  top: 0;
   background-color: var(--background) !important;
   border-right: 1px solid var(--border);
   z-index: 100;
@@ -1557,4 +1555,14 @@ blockquote {
 .row .left {
   display: flex;
   justify-content: flex-end;
+}
+
+/* Sticky left column for desktop only */
+@media (min-width: 1200px) {
+  .left .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
 }
