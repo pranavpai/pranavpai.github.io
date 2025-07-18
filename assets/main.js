@@ -192,6 +192,7 @@ class PaginationManager {
       paginationId: "recommendation-pagination",
       itemsPerPage: 4,
       displayStyle: "block",
+      hash: "#recommendations",
     });
   }
 

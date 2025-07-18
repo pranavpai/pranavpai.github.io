@@ -2,9 +2,9 @@ const autoSlide = false; // use true/false
 const slideInterval = 2200;
 
 const imageUrls = [
-  "./assets/img/Photos/china.jpeg",
-  "./assets/img/Photos/hike.jpeg",
-  "./assets/img/Photos/office.jpeg"
+  "./assets/img/Photos/profile/china.jpeg",
+  "./assets/img/Photos/profile/hike.jpeg",
+  "./assets/img/Photos/profile/office.jpeg"
 ];
 
 const carousel = document.getElementById("carousel");

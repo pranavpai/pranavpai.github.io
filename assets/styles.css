@@ -918,7 +918,7 @@ blockquote {
   font-style: italic;
   font-size: 0.875rem;
   line-height: 1.6;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* Soft Skills */
