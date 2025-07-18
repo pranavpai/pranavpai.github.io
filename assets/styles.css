@@ -827,25 +827,26 @@ html {
 .pagination.project-pagi {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
   background-color: var(--accent);
-  width: 200px !important;
+  width: 150px !important;
   margin: 20px auto;
-  padding: 8px;
-  border-radius: 30px;
+  padding: 6px;
+  border-radius: 22px;
   border: 1px solid var(--border);
 }
 
 .pagination button {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background-color: var(--accent);
   border: 1px solid var(--border);
   cursor: pointer;
   border-radius: 50%;
   transition: all 0.3s ease;
   color: var(--muted-foreground) !important;
+  font-size: 0.875rem;
 }
 
 .pagination button.active {
