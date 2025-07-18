@@ -27,9 +27,9 @@
 
   --chat_cont: #16212edc;
   --slate: #8892b0;
-  --greenish: #22d3ee;
+  --greenish: #64748b;
 
-  --light-green: #0f172a;
+  --light-green: var(--muted-foreground);
 
   /* Fonts */
   --font-family: "Inter", sans-serif;
@@ -55,7 +55,7 @@
   --chat-card: #1e293b;
   --card: #1e293b00;
   --card-foreground: #e2e8f0;
-  --primary: #22d3ee;
+  --primary: #e2e8f0;
   --primary-foreground: #0f172a;
   --pagination-bg: #1b2742;
   --secondary: #1e293b;
@@ -66,11 +66,11 @@
   --accent-foreground: #e2e8f0;
   --border-hover: #334155;
   --border: #33415500;
-  --ring: #22d3ee;
+  --ring: #e2e8f0;
   --sidebar-bg: #0f172a;
   --shadow-lg: 0 10px 15px -3px rgba(53, 53, 53, 0.749),
     0 4px 6px -2px rgba(58, 58, 58, 0.621);
-  --light-green: #64ffda;
+  --light-green: #e2e8f0;
 }
 
 * {
@@ -101,7 +101,7 @@ a {
 .spinner {
   width: 40px;
   height: 40px;
-  border: 4px solid #22d3ee;
+  border: 4px solid var(--foreground);
   border-top: 4px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -851,7 +851,7 @@ html {
 }
 
 .pagination button:hover {
-  background-color: #22d3ee;
+  background-color: var(--muted);
   color: var(--foreground) !important;
 }
 
