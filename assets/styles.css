@@ -1338,10 +1338,25 @@ blockquote {
 @media (max-width: 768px) {
   .skills-grid {
     flex-direction: column;
+    gap: 2rem;
   }
   .skills-grid .tabs {
     width: 100%;
-    margin-bottom: 80px;
+    height: auto;
+    margin-bottom: 0;
+  }
+  
+  .character {
+    margin-top: 1rem;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 1rem 0 !important;
+  }
+  
+  .tabs {
+    background-color: var(--card) !important;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
   }
 
   .project-card {
@@ -1433,6 +1448,12 @@ blockquote {
   .recommendation-card,
   .activity-card {
     padding: 1rem;
+  }
+  
+  .character {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0.75rem 0 !important;
   }
 
   .chat-modal-content {
