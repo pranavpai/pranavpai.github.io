@@ -372,7 +372,6 @@ html {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
-  animation: float 3s ease-in-out infinite;
 }
 
 .chat-button:hover {
@@ -382,15 +381,7 @@ html {
   color: var(--primary-foreground) !important;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
+
 
 /* Main Content */
 .main-content {
