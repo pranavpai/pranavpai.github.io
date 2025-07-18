@@ -690,11 +690,13 @@ html {
   margin-bottom: 0.5rem;
 }
 
-.achievements ul {
+.achievements ul,
+.achievements-list {
   list-style: disc;
-  list-style-position: inside;
+  list-style-position: outside;
   color: var(--muted-foreground);
   font-size: 0.875rem;
+  padding-left: 1.2rem;
 }
 
 .achievements li {
@@ -851,6 +853,43 @@ html {
 .pagination button:hover {
   background-color: #22d3ee;
   color: var(--foreground) !important;
+}
+
+/* Achievements Toggle */
+.achievements-toggle {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent);
+  color: var(--foreground) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.achievements-toggle:hover {
+  background-color: var(--primary);
+  color: var(--primary-foreground) !important;
+  transform: translateY(-1px);
+}
+
+.achievements-list {
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 0.75rem;
+}
+
+.expanded .toggle-icon {
+  transform: rotate(180deg);
 }
 
 /* Recommendations Grid */

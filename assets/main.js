@@ -292,6 +292,24 @@ class PortfolioApp {
     }
   }
 }
+
+// Achievements Toggle Function
+function toggleAchievements(button) {
+  const list = button.nextElementSibling;
+  const icon = button.querySelector('.toggle-icon');
+  const text = button.querySelector('span:first-child');
+  
+  if (list.style.display === 'none' || list.style.display === '') {
+    list.style.display = 'block';
+    text.textContent = 'Hide Key Achievements';
+    button.classList.add('expanded');
+  } else {
+    list.style.display = 'none';
+    text.textContent = 'Show Key Achievements';
+    button.classList.remove('expanded');
+  }
+}
+
 // Initialize the application
 const portfolioApp = new PortfolioApp();
 
