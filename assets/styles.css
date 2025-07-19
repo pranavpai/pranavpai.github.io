@@ -1374,6 +1374,7 @@ blockquote {
 
   .activities-grid {
     grid-template-columns: 1fr;
+    gap: 0.1rem;
   }
 
   .education-header {
