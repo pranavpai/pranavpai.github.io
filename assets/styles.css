@@ -27,9 +27,9 @@
 
   --chat_cont: #16212edc;
   --slate: #8892b0;
-  --greenish: #22d3ee;
+  --greenish: #64748b;
 
-  --light-green: #0f172a;
+  --light-green: var(--muted-foreground);
 
   /* Fonts */
   --font-family: "Inter", sans-serif;
@@ -55,7 +55,7 @@
   --chat-card: #1e293b;
   --card: #1e293b00;
   --card-foreground: #e2e8f0;
-  --primary: #22d3ee;
+  --primary: #e2e8f0;
   --primary-foreground: #0f172a;
   --pagination-bg: #1b2742;
   --secondary: #1e293b;
@@ -66,11 +66,11 @@
   --accent-foreground: #e2e8f0;
   --border-hover: #334155;
   --border: #33415500;
-  --ring: #22d3ee;
+  --ring: #e2e8f0;
   --sidebar-bg: #0f172a;
   --shadow-lg: 0 10px 15px -3px rgba(53, 53, 53, 0.749),
     0 4px 6px -2px rgba(58, 58, 58, 0.621);
-  --light-green: #64ffda;
+  --light-green: #e2e8f0;
 }
 
 * {
@@ -101,7 +101,7 @@ a {
 .spinner {
   width: 40px;
   height: 40px;
-  border: 4px solid #22d3ee;
+  border: 4px solid var(--foreground);
   border-top: 4px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -212,8 +212,6 @@ html {
 
 /* Sidebar */
 .sidebar {
-  position: fixed;
-  top: 0;
   background-color: var(--background) !important;
   border-right: 1px solid var(--border);
   z-index: 100;
@@ -223,7 +221,7 @@ html {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.5rem;
 }
 
 /* About Section */
@@ -301,6 +299,7 @@ html {
   padding: 1.5rem;
   border-radius: var(--border-radius);
   border: 1px solid var(--border);
+  margin-top: -1.75rem;
 }
 
 .social-section h3 {
@@ -374,7 +373,6 @@ html {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
-  animation: float 3s ease-in-out infinite;
 }
 
 .chat-button:hover {
@@ -384,15 +382,7 @@ html {
   color: var(--primary-foreground) !important;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
+
 
 /* Main Content */
 .main-content {
@@ -489,9 +479,11 @@ html {
 }
 
 .tech-tag.small {
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: auto;
+  line-height: 1.2;
 }
 
 .character-traits {
@@ -553,23 +545,20 @@ html {
   margin-bottom: 0.25rem;
 }
 
-.period {
-  font-size: 0.875rem;
-  color: var(--muted-foreground);
-  margin-bottom: 0.5rem;
-}
+/* .period class removed - no longer needed */
 
 .city {
   font-size: 0.875rem;
   color: var(--muted-foreground);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .subjects h4 {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--foreground) !important;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 1rem;
 }
 
 /* Tabs */
@@ -690,11 +679,13 @@ html {
   margin-bottom: 0.5rem;
 }
 
-.achievements ul {
+.achievements ul,
+.achievements-list {
   list-style: disc;
-  list-style-position: inside;
+  list-style-position: outside;
   color: var(--muted-foreground);
   font-size: 0.875rem;
+  padding-left: 1.2rem;
 }
 
 .achievements li {
@@ -820,37 +811,82 @@ html {
 .project-button:hover {
   background-color: var(--accent);
 }
-.pagination {
+.pagination,
+.pagination.research-pagi,
+.pagination.project-pagi {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
-  background-color: var(--pagination-bg);
-  width: 200px;
+  background-color: var(--accent);
+  width: 150px !important;
   margin: 20px auto;
-  padding: 5px;
-  border-radius: 30px;
+  padding: 6px;
+  border-radius: 22px;
+  border: 1px solid var(--border);
 }
 
 .pagination button {
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  border: 1px solid #8c999b4d;
+  width: 32px;
+  height: 32px;
+  background-color: var(--accent);
+  border: 1px solid var(--border);
   cursor: pointer;
   border-radius: 50%;
-  transition: background 0.3s;
-  color: var(--foreground) !important;
+  transition: all 0.3s ease;
+  color: var(--muted-foreground) !important;
+  font-size: 0.875rem;
 }
 
 .pagination button.active {
-  font-weight: bold;
-  color: var(--light-green) !important;
+  background-color: var(--background);
+  color: var(--foreground) !important;
+  font-weight: 600;
+  border: 1px solid var(--border-hover);
 }
 
 .pagination button:hover {
-  background-color: #22d3ee;
+  background-color: var(--accent);
   color: var(--foreground) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Achievements Toggle */
+.achievements-toggle {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent);
+  color: var(--foreground) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.achievements-toggle:hover {
+  background-color: var(--primary);
+  color: var(--primary-foreground) !important;
+  transform: translateY(-1px);
+}
+
+.achievements-list {
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 0.75rem;
+}
+
+.expanded .toggle-icon {
+  transform: rotate(180deg);
 }
 
 /* Recommendations Grid */
@@ -918,7 +954,7 @@ blockquote {
   font-style: italic;
   font-size: 0.875rem;
   line-height: 1.6;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* Soft Skills */
@@ -982,6 +1018,7 @@ blockquote {
 .activity-icon {
   font-size: 1.5rem;
   flex-shrink: 0;
+  margin-top: -0.3rem;
 }
 
 .activity-content h3 {
@@ -1302,10 +1339,25 @@ blockquote {
 @media (max-width: 768px) {
   .skills-grid {
     flex-direction: column;
+    gap: 2rem;
   }
   .skills-grid .tabs {
     width: 100%;
-    margin-bottom: 80px;
+    height: auto;
+    margin-bottom: 0;
+  }
+  
+  .character {
+    margin-top: 1rem;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 1rem 0 !important;
+  }
+  
+  .tabs {
+    background-color: var(--card) !important;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
   }
 
   .project-card {
@@ -1323,6 +1375,7 @@ blockquote {
 
   .activities-grid {
     grid-template-columns: 1fr;
+    gap: 0.1rem;
   }
 
   .education-header {
@@ -1397,6 +1450,12 @@ blockquote {
   .recommendation-card,
   .activity-card {
     padding: 1rem;
+  }
+  
+  .character {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0.75rem 0 !important;
   }
 
   .chat-modal-content {
@@ -1498,6 +1557,35 @@ blockquote {
   }
 }
 
+/* Mobile carousel enhancements */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    touch-action: pan-y; /* Allow vertical scrolling but handle horizontal touches */
+  }
+  
+  .carousel {
+    user-select: none; /* Prevent text selection during swipes */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .slide {
+    touch-action: manipulation; /* Optimize for touch interactions */
+  }
+  
+  .slide.center {
+    /* Add subtle visual hint that center image is tappable on mobile */
+    transition: transform 0.6s ease, opacity 0.6s ease, left 0.6s ease, filter 0.3s ease;
+  }
+  
+  .slide.center:active {
+    /* Provide quick visual feedback on tap */
+    filter: brightness(0.9);
+    transform: translateX(-50%) scale(0.98);
+  }
+}
+
 .container,
 .container-lg,
 .container-md,
@@ -1510,4 +1598,14 @@ blockquote {
 .row .left {
   display: flex;
   justify-content: flex-end;
+}
+
+/* Sticky left column for desktop only */
+@media (min-width: 1200px) {
+  .left .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
 }
