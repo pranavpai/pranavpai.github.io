@@ -3,7 +3,7 @@
 [![Deploy to GitHub Pages](https://github.com/pranavpai/pranavpai.github.io/actions/workflows/deploy.yml/badge.svg?branch=main&cache-control=no-cache)](https://github.com/pranavpai/pranavpai.github.io/actions/workflows/deploy.yml)
 [![PR Preview Check](https://github.com/pranavpai/pranavpai.github.io/actions/workflows/pr-preview.yml/badge.svg?branch=main&cache-control=no-cache)](https://github.com/pranavpai/pranavpai.github.io/actions/workflows/pr-preview.yml)
 
-A modern, responsive portfolio website for Pranav Pai - AI Engineer & Full Stack Developer, featuring dark/light mode, interactive components, and AI-powered chatbot integration.
+A modern, responsive portfolio website for Pranav Pai - AI Engineer, featuring dark/light mode, interactive components, and AI-powered chatbot integration.
 
 ## 🌐 Live Website
 
