@@ -1557,6 +1557,35 @@ blockquote {
   }
 }
 
+/* Mobile carousel enhancements */
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    touch-action: pan-y; /* Allow vertical scrolling but handle horizontal touches */
+  }
+  
+  .carousel {
+    user-select: none; /* Prevent text selection during swipes */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .slide {
+    touch-action: manipulation; /* Optimize for touch interactions */
+  }
+  
+  .slide.center {
+    /* Add subtle visual hint that center image is tappable on mobile */
+    transition: transform 0.6s ease, opacity 0.6s ease, left 0.6s ease, filter 0.3s ease;
+  }
+  
+  .slide.center:active {
+    /* Provide quick visual feedback on tap */
+    filter: brightness(0.9);
+    transform: translateX(-50%) scale(0.98);
+  }
+}
+
 .container,
 .container-lg,
 .container-md,

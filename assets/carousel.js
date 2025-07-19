@@ -48,6 +48,14 @@ function updateSlides() {
     slide.className = "slide"; // Reset
     if (i === current) {
       slide.classList.add("center");
+      // Add click handler for center image on mobile
+      if (isMobileDevice()) {
+        slide.style.cursor = "pointer";
+        slide.onclick = goRight;
+      } else {
+        slide.style.cursor = "default";
+        slide.onclick = null;
+      }
     } else if (i === leftIndex) {
       slide.classList.add("left");
       slide.style.cursor = "pointer";
@@ -56,6 +64,9 @@ function updateSlides() {
       slide.classList.add("right");
       slide.style.cursor = "pointer";
       slide.onclick = goRight;
+    } else {
+      slide.style.cursor = "default";
+      slide.onclick = null;
     }
   });
 }
@@ -104,6 +115,16 @@ let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
 let touchEndY = 0;
+let touchStartTime = 0;
+
+/**
+ * Mobile detection utility
+ * @returns {boolean} True if device is mobile
+ */
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         window.innerWidth <= 768;
+}
 
 /**
  * Handle touch start event
@@ -112,6 +133,7 @@ let touchEndY = 0;
 function handleTouchStart(e) {
   touchStartX = e.touches[0].clientX;
   touchStartY = e.touches[0].clientY;
+  touchStartTime = Date.now();
 }
 
 /**
@@ -138,9 +160,21 @@ function handleTouchEnd(e) {
 function handleSwipe() {
   const deltaX = touchEndX - touchStartX;
   const deltaY = touchEndY - touchStartY;
-  const minSwipeDistance = 50;
+  const timeDiff = Date.now() - touchStartTime;
+  const minSwipeDistance = isMobileDevice() ? 30 : 50; // More sensitive on mobile
+  const maxTapTime = 300; // Maximum time for a tap (ms)
+  const maxTapDistance = 10; // Maximum movement for a tap (px)
   
-  // Only trigger swipe if horizontal movement is greater than vertical
+  // Check if this was a tap (short time, minimal movement)
+  if (timeDiff < maxTapTime && Math.abs(deltaX) < maxTapDistance && Math.abs(deltaY) < maxTapDistance) {
+    // Handle tap on mobile devices
+    if (isMobileDevice()) {
+      handleMobileTap();
+      return;
+    }
+  }
+  
+  // Handle swipe gesture
   if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
     if (deltaX > 0) {
       goLeft(); // Swipe right -> go to previous image
@@ -148,6 +182,13 @@ function handleSwipe() {
       goRight(); // Swipe left -> go to next image
     }
   }
+}
+
+/**
+ * Handle tap on mobile devices - cycles to next image
+ */
+function handleMobileTap() {
+  goRight(); // Tap anywhere on carousel advances to next image
 }
 
 // Init
@@ -158,5 +199,20 @@ updateSlides();
 carousel.addEventListener('touchstart', handleTouchStart, { passive: false });
 carousel.addEventListener('touchmove', handleTouchMove, { passive: false });
 carousel.addEventListener('touchend', handleTouchEnd, { passive: false });
+
+// Add mouse events for desktop testing of mobile functionality
+if (!isMobileDevice()) {
+  carousel.addEventListener('mousedown', (e) => {
+    touchStartX = e.clientX;
+    touchStartY = e.clientY;
+    touchStartTime = Date.now();
+  });
+  
+  carousel.addEventListener('mouseup', (e) => {
+    touchEndX = e.clientX;
+    touchEndY = e.clientY;
+    handleSwipe();
+  });
+}
 
 startAutoSlide();
