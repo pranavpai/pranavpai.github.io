@@ -1,4 +1,7 @@
-// Theme Management
+/**
+ * Theme Management Class
+ * Handles dark/light theme switching with localStorage persistence
+ */
 class ThemeManager {
   constructor() {
     this.theme = localStorage.getItem("theme") || "light";
@@ -28,7 +31,10 @@ class ThemeManager {
   }
 }
 
-// Tab Management
+/**
+ * Tab Management Class
+ * Handles switching between tabbed content sections
+ */
 class TabManager {
   constructor() {
     this.init();
@@ -77,7 +83,10 @@ class TabManager {
 
 
 
-// Utility Functions
+/**
+ * Utility Functions Class
+ * Provides common utility methods for performance optimization
+ */
 class Utils {
   static debounce(func, wait) {
     let timeout;
@@ -105,7 +114,10 @@ class Utils {
   }
 }
 
-// Performance Manager
+/**
+ * Performance Manager Class
+ * Handles image lazy loading and scroll event optimization
+ */
 class PerformanceManager {
   constructor() {
     this.init();
@@ -165,6 +177,10 @@ class PerformanceManager {
   }
 }
 
+/**
+ * Pagination Manager Class
+ * Manages pagination for projects and recommendations sections
+ */
 class PaginationManager {
   constructor() {
     this.init();
@@ -243,7 +259,10 @@ class PaginationManager {
   }
 }
 
-// Application Initialization
+/**
+ * Portfolio Application Main Class
+ * Initializes and coordinates all portfolio components
+ */
 class PortfolioApp {
   constructor() {
     this.init();
@@ -276,9 +295,15 @@ class PortfolioApp {
         }, 250)
       );
 
-      console.log("Pranav Pai's application initialized successfully");
+      // Development logging
+      if (process?.env?.NODE_ENV === 'development' || window.location.hostname === 'localhost') {
+        console.log("Pranav Pai's application initialized successfully");
+      }
     } catch (error) {
-      console.error("Error initializing Pranav Pai's application:", error);
+      // Development error logging
+      if (process?.env?.NODE_ENV === 'development' || window.location.hostname === 'localhost') {
+        console.error("Error initializing Pranav Pai's application:", error);
+      }
     }
   }
 
@@ -293,7 +318,10 @@ class PortfolioApp {
   }
 }
 
-// Achievements Toggle Function
+/**
+ * Toggle achievements visibility in experience cards
+ * @param {HTMLElement} button - The toggle button element
+ */
 function toggleAchievements(button) {
   const list = button.nextElementSibling;
   const icon = button.querySelector('.toggle-icon');

@@ -11,11 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
@@ -519,7 +514,7 @@
                               </div>
                               <div class="experience-details">
                                 <div class="details_top">
-                                  <p>Tech Lead</p>
+                                  <p>Technology Lead</p>
                                   <div class="dot"></div>
                                   <p class="company">DOOR Global</p>
                                 </div>
@@ -1144,8 +1139,8 @@
                               <div class="activity-content">
                                 <h3>Research &amp; Publications</h3>
                                 <p>
-                                  Conduct research and work towards publishing 
-                                  findings in academic journals and IEEE 
+                                  Conduct research and work towards publishing
+                                  findings in academic journals and IEEE
                                   conferences on AI and machine learning.
                                 </p>
                               </div>
@@ -1155,8 +1150,8 @@
                               <div class="activity-content">
                                 <h3>Tech Events &amp; Networking</h3>
                                 <p>
-                                  Active attendee at tech conferences and 
-                                  meetups across Australia, networking and 
+                                  Active attendee at tech conferences and
+                                  meetups across Australia, networking and
                                   staying connected with the tech community.
                                 </p>
                               </div>
@@ -1176,8 +1171,8 @@
                               <div class="activity-content">
                                 <h3>Continuous Learning</h3>
                                 <p>
-                                  Stay current with AI research papers, 
-                                  experiment with open source repositories, 
+                                  Stay current with AI research papers,
+                                  experiment with open source repositories,
                                   and read books on ML system design.
                                 </p>
                               </div>
@@ -1187,8 +1182,8 @@
                               <div class="activity-content">
                                 <h3>Outdoor Activities</h3>
                                 <p>
-                                  Regular hiking enthusiast exploring Australia's 
-                                  trails and maintaining fitness through 
+                                  Regular hiking enthusiast exploring Australia's
+                                  trails and maintaining fitness through
                                   consistent gym training.
                                 </p>
                               </div>
@@ -1279,7 +1274,7 @@
       window.addEventListener("load", () => {
         const preloader = document.getElementById("preloader");
         const content = document.getElementById("portfolio-content");
-   
+
         // Hide preloader
         preloader.style.display = "none";
 
@@ -1304,7 +1299,7 @@
         try {
           // Handle different types of input from Gradio
           let text = '';
-          
+
           if (typeof input === 'string') {
             text = input;
           } else if (Array.isArray(input)) {
@@ -1315,13 +1310,15 @@
           } else {
             text = String(input || '');
           }
-          
+
           if (!text) return '';
-          
-          // Debug: Log the original input to understand the structure
-          console.log('Original Gradio input:', input);
-          console.log('Extracted text:', text);
-          
+
+          // Debug: Log the original input to understand the structure (development only)
+          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('Original Gradio input:', input);
+            console.log('Extracted text:', text);
+          }
+
           // Escape HTML first to prevent XSS
           let formatted = text
             .replace(/&/g, '&amp;')
@@ -1329,41 +1326,46 @@
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#39;');
-          
+
           // Convert URLs to clickable links (simplified to exclude common punctuation)
           formatted = formatted.replace(
-            /(https?:\/\/[^\s<>),:;!?]+)/g, 
+            /(https?:\/\/[^\s<>),:;!?]+)/g,
             '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
           );
-          
+
           // Convert email addresses to mailto links
           formatted = formatted.replace(
             /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g,
             '<a href="mailto:$1">$1</a>'
           );
-          
+
           // Convert double asterisks to bold
           formatted = formatted.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-          
+
           // Convert single asterisks to italic
           formatted = formatted.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-          
+
           // Make project names in brackets consistently bold
           formatted = formatted.replace(/\[([^\]]+)\]/g, '<strong>[$1]</strong>');
-          
+
           // Convert line breaks to <br> tags - preserve original structure
           formatted = formatted.replace(/\n/g, '<br>');
-          
+
           // Clean up multiple consecutive <br> tags (but keep some spacing)
           formatted = formatted.replace(/(<br>\s*){4,}/g, '<br><br><br>');
-          
-          // Debug: Log the final formatted HTML
-          console.log('Final formatted HTML:', formatted);
-          
+
+          // Debug: Log the final formatted HTML (development only)
+          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('Final formatted HTML:', formatted);
+          }
+
           return formatted;
-          
+
         } catch (error) {
-          console.error('Error formatting bot response:', error);
+          // Error logging (development only)
+          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.error('Error formatting bot response:', error);
+          }
           // Return original input as string if formatting fails
           return String(input || '');
         }
@@ -1386,7 +1388,10 @@
             );
             this.pushBotMessage("Hello! Curious about my career? Just ask.");
           } catch (error) {
-            console.error("Gradio connection error:", error);
+            // Connection error logging (development only)
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+              console.error("Gradio connection error:", error);
+            }
             this.pushBotMessage(
               "Error connecting to AI. Please try again later."
             );
@@ -1454,13 +1459,19 @@
                 message: userMessage.text,
               });
 
-              console.log("Gradio response:", result); // Debug log
-              
+              // Debug log (development only)
+              if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.log("Gradio response:", result);
+              }
+
               const replyText =
                 result.data || "Sorry, I couldn't understand that.";
               this.updateLastBotMessage(replyText);
             } catch (error) {
-              console.error("Prediction error:", error);
+              // Error logging (development only)
+              if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.error("Prediction error:", error);
+              }
               this.updateLastBotMessage("Oops! Failed to get a response.");
             }
           } else {
@@ -1500,7 +1511,7 @@
             messageDiv.className = `message ${message.sender}-message`;
 
             // Format bot messages, keep user messages as plain text
-            const messageContent = message.sender === "bot" 
+            const messageContent = message.sender === "bot"
               ? formatBotResponse(message.text)
               : message.text;
 
