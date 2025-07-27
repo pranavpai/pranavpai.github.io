@@ -533,9 +533,6 @@ html {
   margin-bottom: 0.5rem;
 }
 
-.education-card:hover .school {
-  color: var(--light-green) !important;
-}
 
 .school {
   font-size: 1rem;
@@ -658,14 +655,6 @@ html {
   color: var(--foreground) !important;
   margin-bottom: 0 !important;
 }
-.recommendation-card:hover .details_top .dot,
-.experience-card:hover .details_top .dot {
-  background-color: var(--light-green) !important;
-}
-.experience-card:hover .experience-details h3,
-.experience-card:hover .company {
-  color: var(--light-green) !important;
-}
 .description {
   color: var(--muted-foreground);
   margin-bottom: 1rem;
@@ -715,10 +704,6 @@ html {
   border: 1px solid var(--border-hover);
 }
 
-.project-card:hover .p_title h3,
-.project-card:hover .project-category {
-  color: var(--light-green) !important;
-}
 .recommendation-card .p_title svg {
   margin: 0;
 }
@@ -732,9 +717,6 @@ html {
 .p_title svg {
   margin-bottom: 8px;
   transition: all 0.3s ease;
-}
-.project-card:hover .p_title svg {
-  color: var(--light-green) !important;
 }
 .project-image {
   aspect-ratio: 16/9;
@@ -909,9 +891,6 @@ html {
 }
 .details_top p {
   margin-bottom: 0px !important;
-}
-.recommendation-card:hover .details_top p {
-  color: var(--light-green) !important;
 }
 .recommendation-header {
   display: flex;
