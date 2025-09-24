@@ -45,7 +45,7 @@ class AINewsAgent:
 
         # Search for general AI news from the current month
         current_month = datetime.now().strftime("%B %Y")
-        query = f"AI breakthrough discovery research {current_month} accuracy performance model -company -startup -funding -stock"
+        query = f'"AI breakthrough" OR "AI discovery" OR "AI research" {current_month} site:sciencedaily.com OR site:nature.com OR site:arxiv.org -company -startup -funding -stock'
 
         headers = {
             "Accept": "application/json",
@@ -55,7 +55,7 @@ class AINewsAgent:
         params = {
             "q": query,
             "count": 10,
-            "freshness": "pm",  # Past month
+            "freshness": "pw",  # Past week for more recent results
             "text_decorations": False,
             "search_lang": "en"
         }
@@ -85,7 +85,15 @@ class AINewsAgent:
             })
 
         # Create prompt for OpenAI
-        prompt = f"""You are an AI news curator. Select ONE piece of AI news that is most relevant to a general audience and represents a significant breakthrough.
+        current_date = datetime.now().strftime("%B %d, %Y")
+        prompt = f"""You are an AI news curator. Today is {current_date}.
+
+        Select ONE piece of AI news that:
+        1. Is from the CURRENT MONTH ({datetime.now().strftime("%B %Y")}) - strongly prefer the most recent news
+        2. Is most relevant to a general audience
+        3. Represents a significant breakthrough
+
+        If no news is from the current month, select the most recent one available.
 
         News items:
         {json.dumps(news_items, indent=2)}
@@ -95,7 +103,7 @@ class AINewsAgent:
         {{
             "selected_index": 0,
             "summary": "ONE medium sentence with specific details and brief impact",
-            "reason": "why this was selected"
+            "reason": "why this was selected (include publication date if known)"
         }}
 
         Summary format: "[Specific breakthrough with numbers/names] enabling [brief impact]"
