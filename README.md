@@ -7,7 +7,7 @@ A modern, responsive portfolio website for Pranav Pai - AI Engineer & Researcher
 
 ## 🌐 Live Website
 
-**Production:** [https://pranavpai.github.io](https://pranavpai.github.io) 
+**Production:** [https://pranavpai.github.io](https://pranavpai.github.io)
 
 ## ✨ Features
 
