@@ -733,14 +733,14 @@ html {
 
 .project-content {
   width: 60%;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 .recommendation-card .p_title,
 .project-header .p_title {
@@ -766,7 +766,8 @@ html {
 .project-icons {
   display: flex;
   gap: 0.75rem;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: -4px;
 }
 
 .project-icon {
@@ -837,7 +838,7 @@ html {
   color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .project-button {
