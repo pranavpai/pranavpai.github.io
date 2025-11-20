@@ -27,122 +27,87 @@ class AINewsAgent:
     def __init__(self):
         # Load environment variables
         self.openai_api_key = os.getenv('OPENAI_API_KEY')
-        self.brave_api_key = os.getenv('BRAVE_API_KEY')
         self.pushover_user = os.getenv('PUSHOVER_USER')
         self.pushover_token = os.getenv('PUSHOVER_TOKEN')
 
-        # Validate environment variables
-        if not all([self.openai_api_key, self.brave_api_key,
-                   self.pushover_user, self.pushover_token]):
+        # Validate environment variables (Brave API no longer needed)
+        if not all([self.openai_api_key, self.pushover_user, self.pushover_token]):
             raise ValueError("Missing required environment variables")
 
         # Initialize OpenAI client
         self.openai_client = OpenAI(api_key=self.openai_api_key)
 
-    def search_ai_news(self) -> Dict:
-        """Search for recent AI news using Brave Search API"""
-        url = "https://api.search.brave.com/res/v1/web/search"
-
-        # Search for general AI news from the current month
+    def find_ai_news_with_search(self) -> Optional[Dict]:
+        """Use OpenAI Responses API with native web search to find AI news"""
         current_month = datetime.now().strftime("%B %Y")
-        query = f'"AI breakthrough" OR "AI discovery" OR "AI research" {current_month} site:sciencedaily.com OR site:nature.com OR site:arxiv.org -company -startup -funding -stock'
-
-        headers = {
-            "Accept": "application/json",
-            "X-Subscription-Token": self.brave_api_key
-        }
-
-        params = {
-            "q": query,
-            "count": 10,
-            "freshness": "pw",  # Past week for more recent results
-            "text_decorations": False,
-            "search_lang": "en"
-        }
-
-        try:
-            response = requests.get(url, headers=headers, params=params)
-            response.raise_for_status()
-            return response.json()
-        except requests.RequestException as e:
-            logger.error(f"Error searching for news: {e}")
-            raise
-
-    def select_best_news(self, search_results: Dict) -> Optional[Dict]:
-        """Use OpenAI to select the most relevant and interesting AI news"""
-        if not search_results.get('web', {}).get('results'):
-            logger.warning("No search results found")
-            return None
-
-        # Prepare search results for OpenAI
-        news_items = []
-        for idx, result in enumerate(search_results['web']['results'][:5]):
-            news_items.append({
-                "index": idx,
-                "title": result.get('title', ''),
-                "description": result.get('description', ''),
-                "url": result.get('url', '')
-            })
-
-        # Create prompt for OpenAI
         current_date = datetime.now().strftime("%B %d, %Y")
-        prompt = f"""You are an AI news curator. Today is {current_date}.
-
-        Select ONE piece of AI news that:
-        1. Is from the CURRENT MONTH ({datetime.now().strftime("%B %Y")}) - strongly prefer the most recent news
-        2. Is most relevant to a general audience
-        3. Represents a significant breakthrough
-
-        If no news is from the current month, select the most recent one available.
-
-        News items:
-        {json.dumps(news_items, indent=2)}
-
-        Respond with ONLY valid JSON (no markdown, no extra text):
-
-        {{
-            "selected_index": 0,
-            "summary": "ONE medium sentence with specific details and brief impact",
-            "reason": "why this was selected (include publication date if known)"
-        }}
-
-        Summary format: "[Specific breakthrough with numbers/names] enabling [brief impact]"
-
-        Good example: "Researchers achieved 99.2% accuracy in real-time translation across 200 languages using a new transformer, enabling instant communication without internet"
-        """
 
         try:
-            response = self.openai_client.chat.completions.create(
+            logger.info(f"Using OpenAI web search to find AI news for {current_month}")
+
+            response = self.openai_client.responses.create(
                 model="gpt-4o-mini",
-                messages=[
-                    {"role": "system", "content": "You are a professional AI news curator. Always respond with valid JSON."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.7
+                tools=[{
+                    "type": "web_search_preview",
+                    "search_context_size": "high"  # More thorough search
+                }],
+                input=f"""Today is {current_date}.
+
+CRITICAL: You MUST find AI news published in {current_month}. Do NOT select news from earlier months.
+
+Search the web for the most recent and significant AI research breakthrough or development published in {current_month}.
+
+Search Strategy:
+1. Search for: "AI breakthrough {current_month}" OR "AI research {current_month}" OR "artificial intelligence discovery {current_month}"
+2. Focus on these sources: Science Daily, Nature, arXiv, MIT News, IEEE Spectrum, Stanford News
+3. Filter publication dates - ONLY {current_month}
+
+Requirements:
+- MUST be from {current_month} (verify publication date)
+- Academic/research focus (NOT business, startups, funding, stocks)
+- From reputable scientific sources
+- Significant development (even if incremental - ANY research from this month counts)
+
+If you find MULTIPLE items from {current_month}, select the most significant one.
+If you find NO items from {current_month}, search for "latest AI research" and find the MOST RECENT available, noting the actual date.
+
+Return ONLY valid JSON (no markdown, no formatting):
+
+{{
+    "title": "exact headline",
+    "summary": "one sentence: [specific breakthrough] enabling [impact]",
+    "url": "full source URL",
+    "publication_date": "exact date found",
+    "verified_current_month": true/false
+}}
+
+Example summary: "Researchers achieved 99.2% accuracy in real-time translation across 200 languages using a new transformer architecture, enabling instant cross-language communication"
+"""
             )
 
-            response_content = response.choices[0].message.content.strip()
-            logger.info(f"OpenAI response: {response_content}")
+            # Parse the response
+            response_text = response.output_text.strip()
+            logger.info(f"OpenAI search response: {response_text}")
 
-            # Try to extract JSON if it's wrapped in markdown or other text
-            if "```json" in response_content:
-                json_start = response_content.find("```json") + 7
-                json_end = response_content.find("```", json_start)
-                response_content = response_content[json_start:json_end].strip()
-            elif response_content.startswith("```") and response_content.endswith("```"):
-                response_content = response_content[3:-3].strip()
+            # Extract JSON if wrapped in markdown
+            if "```json" in response_text:
+                json_start = response_text.find("```json") + 7
+                json_end = response_text.find("```", json_start)
+                response_text = response_text[json_start:json_end].strip()
+            elif response_text.startswith("```") and response_text.endswith("```"):
+                response_text = response_text[3:-3].strip()
 
-            result = json.loads(response_content)
-            selected_news = news_items[result['selected_index']]
+            result = json.loads(response_text)
 
-            return {
-                'title': selected_news['title'],
-                'summary': result['summary'],
-                'url': selected_news['url'],
-                'reason': result['reason']
-            }
+            # Validate result has required fields
+            if not all(key in result for key in ['title', 'summary', 'url']):
+                raise ValueError("Response missing required fields")
+
+            logger.info(f"Found news: {result['title']}")
+            return result
+
         except Exception as e:
-            logger.error(f"Error selecting news with OpenAI: {e}")
+            logger.error(f"Error finding AI news with web search: {e}")
             raise
 
     def update_portfolio_html(self, news_item: Dict) -> bool:
@@ -209,40 +174,43 @@ class AINewsAgent:
             logger.error(f"Error sending notification: {e}")
 
     def run(self) -> None:
-        """Main execution flow"""
+        """Main execution flow with fallback to keep existing news on failure"""
         logger.info(f"Starting AI News Agent - {datetime.now()}")
 
         try:
-            # Search for AI news
-            logger.info("Searching for AI news...")
-            search_results = self.search_ai_news()
-
-            # Select the best news item
-            logger.info("Selecting best news item...")
-            news_item = self.select_best_news(search_results)
+            # Search for AI news using OpenAI web search
+            logger.info("Searching for AI news using OpenAI web search...")
+            news_item = self.find_ai_news_with_search()
 
             if not news_item:
                 raise ValueError("No suitable news item found")
 
-            logger.info(f"Selected: {news_item['title']}")
-            logger.info(f"Reason: {news_item['reason']}")
+            logger.info(f"Found: {news_item['title']}")
 
             # Update the portfolio
             logger.info("Updating portfolio HTML...")
             success = self.update_portfolio_html(news_item)
 
-            # Send notification
-            self.send_notification(news_item, success)
+            if not success:
+                raise RuntimeError("Failed to update portfolio HTML")
 
-            if success:
-                logger.info("AI News Agent completed successfully")
-            else:
-                raise RuntimeError("Failed to update portfolio")
+            # Send success notification
+            self.send_notification(news_item, True)
+            logger.info("AI News Agent completed successfully")
 
         except Exception as e:
             logger.error(f"AI News Agent failed: {e}")
-            self.send_notification({}, False)
-            raise
+            logger.info("FALLBACK: Keeping existing AI news (no changes made)")
+
+            # Send failure notification with fallback message
+            failure_message = {
+                'title': 'Update Failed - Keeping Existing News',
+                'summary': f"Error: {str(e)}. The existing AI news will remain unchanged."
+            }
+            self.send_notification(failure_message, False)
+
+            # Don't raise - allow workflow to complete without changes
+            # This ensures existing news stays on the website
 
 
 def main():

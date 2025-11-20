@@ -39,7 +39,6 @@ jobs:
     - name: Run AI News Agent
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
         PUSHOVER_USER: ${{ secrets.PUSHOVER_USER }}
         PUSHOVER_TOKEN: ${{ secrets.PUSHOVER_TOKEN }}
       run: |
