@@ -319,22 +319,37 @@ html {
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  background-color: var(--social-background);
-  border: 1px solid var(--border);
+  background-color: transparent;
+  border: none;
   border-radius: 0.5rem;
   text-decoration: none;
   font-size: 1.2rem;
   transition: all 0.3s ease;
   margin-right: 5px;
+  color: var(--foreground);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
 .social-link img {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
+
 .social-link:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg) !important;
+  transform: translateY(-2px) scale(1.1);
+}
+
+.social-link:hover svg,
+.social-link:hover img {
+  opacity: 1;
 }
 
 /* Contact Button */
@@ -511,6 +526,8 @@ html {
   border-radius: var(--border-radius);
   border: 1px solid var(--border);
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .education-card:hover {
@@ -519,11 +536,65 @@ html {
   border: 1px solid var(--border-hover);
 }
 
+/* University Logo Backgrounds */
+.education-card[data-university="melbourne"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  background-image: url('./img/Icons/Universities/The_University_of_Melbourne_Coat_of_Arms.svg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.education-card[data-university="heriotwatt"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background-image: url('./img/Icons/Universities/HWUFC.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.education-card[data-university="lse"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 210px;
+  height: 210px;
+  background-image: url('./img/Icons/Universities/London_School_of_Economics_Coat_of_Arms.svg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .education-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .education-info h3 {
@@ -548,6 +619,11 @@ html {
   font-size: 0.875rem;
   color: var(--muted-foreground);
   margin-bottom: 0.75rem;
+}
+
+.subjects {
+  position: relative;
+  z-index: 1;
 }
 
 .subjects h4 {
@@ -733,14 +809,14 @@ html {
 
 .project-content {
   width: 60%;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 .recommendation-card .p_title,
 .project-header .p_title {
@@ -748,6 +824,70 @@ html {
   align-items: center;
   gap: 5px;
 }
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Project Icons Styling */
+.project-icons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-top: -4px;
+}
+
+.project-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+/* IEEE Icon - Matches GitHub highlight style */
+.ieee-icon {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--primary);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.ieee-icon:hover,
+.project-card:hover .ieee-icon {
+  opacity: 1;
+  transform: scale(1.15);
+  background-color: var(--muted);
+}
+
+/* GitHub Icon - Always visible with own hover effect */
+.github-icon {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  color: var(--foreground);
+}
+
+.github-icon:hover {
+  opacity: 1;
+  transform: scale(1.15);
+  background-color: var(--muted);
+}
+
 .recommendation-card .p_title h3 {
   font-size: 22px;
 }
@@ -774,7 +914,7 @@ html {
   color: var(--muted-foreground);
   font-size: 0.875rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .project-button {
@@ -1447,6 +1587,22 @@ blockquote {
   }
   .project-image {
     width: 100%;
+  }
+
+  /* Mobile-friendly icon styling */
+  .project-icons {
+    gap: 1rem;
+  }
+
+  .project-icon {
+    padding: 0.5rem;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  /* Larger touch targets for mobile */
+  .github-icon {
+    opacity: 1;
   }
   .experience-content {
     padding: 0.1rem;
