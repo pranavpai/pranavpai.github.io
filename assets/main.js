@@ -338,6 +338,30 @@ function toggleAchievements(button) {
   }
 }
 
+// Handle GitHub icon clicks in research section
+document.addEventListener('DOMContentLoaded', () => {
+  const githubIcons = document.querySelectorAll('.github-icon');
+  githubIcons.forEach(icon => {
+    const handleClick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const url = icon.getAttribute('data-href');
+      if (url) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+    };
+
+    // Handle both click and keyboard events for accessibility
+    icon.addEventListener('click', handleClick);
+    icon.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleClick(e);
+      }
+    });
+  });
+});
+
 // Initialize the application
 const portfolioApp = new PortfolioApp();
 
