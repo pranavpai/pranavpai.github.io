@@ -526,6 +526,8 @@ html {
   border-radius: var(--border-radius);
   border: 1px solid var(--border);
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .education-card:hover {
@@ -534,11 +536,65 @@ html {
   border: 1px solid var(--border-hover);
 }
 
+/* University Logo Backgrounds */
+.education-card[data-university="melbourne"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  background-image: url('./img/Icons/Universities/The_University_of_Melbourne_Coat_of_Arms.svg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.education-card[data-university="heriotwatt"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background-image: url('./img/Icons/Universities/HWUFC.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.education-card[data-university="lse"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 210px;
+  height: 210px;
+  background-image: url('./img/Icons/Universities/London_School_of_Economics_Coat_of_Arms.svg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .education-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .education-info h3 {
@@ -563,6 +619,11 @@ html {
   font-size: 0.875rem;
   color: var(--muted-foreground);
   margin-bottom: 0.75rem;
+}
+
+.subjects {
+  position: relative;
+  z-index: 1;
 }
 
 .subjects h4 {
