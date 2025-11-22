@@ -1610,8 +1610,18 @@
       class ChatManager {
         constructor() {
           this.messages = [];
-          this.client = null; // Gradio client
+          this.client = null;
+          this.sessionId = this.getOrCreateSessionId();
           this.init();
+        }
+
+        getOrCreateSessionId() {
+          let id = localStorage.getItem('chatbot_session');
+          if (!id) {
+            id = 'sess_' + Math.random().toString(36).substr(2, 12) + Date.now().toString(36);
+            localStorage.setItem('chatbot_session', id);
+          }
+          return id;
         }
 
         async init() {
@@ -1624,7 +1634,6 @@
             );
             this.pushBotMessage("Hello! Curious about my career? Just ask.");
           } catch (error) {
-            // Connection error logging (development only)
             if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
               console.error("Gradio connection error:", error);
             }
@@ -1692,7 +1701,10 @@
           if (this.client) {
             try {
               const result = await this.client.predict("/chat", {
-                message: userMessage.text,
+                message: JSON.stringify({
+                  text: userMessage.text,
+                  session_id: this.sessionId
+                }),
               });
 
               // Debug log (development only)
